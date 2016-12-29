@@ -17,7 +17,7 @@
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <PackageCertificateKeyFile>Talkinator_StoreKey.pfx</PackageCertificateKeyFile>
-    <PackageCertificateThumbprint>D226E66B3EB6391ECF99C58D9C049326480809DC</PackageCertificateThumbprint>
+    <PackageCertificateThumbprint>CF758D76CA0ACE1668BAC2BBF5B1BFB1BDE068D8</PackageCertificateThumbprint>
     <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
     <AppxBundle>Always</AppxBundle>
     <AppxBundlePlatforms>x86|x64|arm</AppxBundlePlatforms>
@@ -94,6 +94,8 @@
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
     <None Include="project.json" />
+    <None Include="Talkinator_StoreKey.pfx" />
+    <None Include="Talkinator_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">

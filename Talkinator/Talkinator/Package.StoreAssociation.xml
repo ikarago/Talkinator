@@ -368,6 +368,12 @@
     <MainPackageIdentityName>21834MacaroniSoft.Revent</MainPackageIdentityName>
     <MainPackageIdentityName>21834MacaroniSoft.Roady</MainPackageIdentityName>
     <MainPackageIdentityName>21834MacaroniSoft.Snips</MainPackageIdentityName>
+    <MainPackageIdentityName>21834MacaroniSoft.Warpzone</MainPackageIdentityName>
+    <MainPackageIdentityName>21834MacaroniSoft.MacaroniNote</MainPackageIdentityName>
+    <MainPackageIdentityName>21834MacaroniSoft.Revent</MainPackageIdentityName>
+    <MainPackageIdentityName>21834MacaroniSoft.Roady</MainPackageIdentityName>
+    <MainPackageIdentityName>21834MacaroniSoft.Snips</MainPackageIdentityName>
+    <MainPackageIdentityName>21834MacaroniSoft.Warpzone</MainPackageIdentityName>
   </AccountPackageIdentityNames>
   <PackageInfoList LandingUrl="https://developer.microsoft.com/dashboard/Application?appId=9NBLGGH4SPNL" />
 </StoreAssociation>
