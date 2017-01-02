@@ -187,7 +187,12 @@ namespace Talkinator.Views
                     randomQuotes.Add("Why are you pressing the play-button? You didn't fill anything in for me to say!");
                     randomQuotes.Add("Never gonna give you up, never gonna let you down.");
                     randomQuotes.Add("Did you know that I was originally going to be called the Talkulator? The programmer changed it after he would repeatedly call me the Talkinator when talking about it to friends.");
-
+                    randomQuotes.Add("Wubbalubbadubdub!");
+                    randomQuotes.Add("We bring the FUN in to NO REFUNDS!");
+                    randomQuotes.Add("He's gonna take you back to the past...");
+                    randomQuotes.Add("Daisy, Daisy, give me your answer, do, I'm half crazy all for the love of you. It won't be a stylish marriage, I can't afford a carriage, But you'd look sweet upon the seat Of a bicycle made for two.");
+                    randomQuotes.Add("You gotta get Swifty!");
+                    randomQuotes.Add("Have you heard about Temida? This young scientist will define the boundraries of time. Maybe you could ask Ikarago about it! ;)");
 
                     SpeechSynthesisStream synthStream = await synth.SynthesizeTextToStreamAsync(randomQuotes[random.Next(randomQuotes.Count)]);
                     MediaSource mediaSource = MediaSource.CreateFromStream(synthStream, "audio");
