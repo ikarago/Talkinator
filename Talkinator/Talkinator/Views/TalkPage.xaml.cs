@@ -12,7 +12,7 @@ using Windows.Media.Playback;
 using Windows.Media.SpeechSynthesis;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-
+using Windows.UI.Xaml.Navigation;
 
 namespace Talkinator.Views
 {
@@ -41,6 +41,13 @@ namespace Talkinator.Views
             _player.AudioCategory = MediaPlayerAudioCategory.Speech;
             _mediaControls = _player.SystemMediaTransportControls;
             _mediaControls.AutoRepeatMode = MediaPlaybackAutoRepeatMode.None;
+            txtTextToSay.Focus(FocusState.Programmatic);
+
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
         }
 
         private async void CheckUpdateStatus()

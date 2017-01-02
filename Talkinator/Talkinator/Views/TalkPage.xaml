@@ -209,6 +209,7 @@
                 
                 <!-- Clear-button -->
                 <Button x:Name="btnClear"
+                        x:Uid="BTN-Clear"
                         Grid.Column="0"
                         Background="Transparent"
                         Content="&#xE106;"
@@ -219,7 +220,7 @@
                         Margin="12,0,6,0"
                         HorizontalAlignment="Right"
                         VerticalAlignment="Center"
-                        Click="btnClear_Click"/>
+                        Click="btnClear_Click" />
 
                 <ProgressRing x:Name="pgrLoading"
                               Grid.Column="1"
@@ -229,6 +230,7 @@
 
                 <!-- Play button -->
                 <Button x:Name="btnPlay"
+                        x:Uid="BTN-Play"
                         Grid.Column="1"
                         Visibility="Visible"
                         Margin="0"
@@ -253,6 +255,7 @@
                 
                 <!-- Pause button -->
                 <Button x:Name="btnPause"
+                        x:Uid="BTN-Pause"
                         Grid.Column="1"
                         Visibility="Collapsed"
                         Margin="0"
@@ -277,7 +280,8 @@
 
 
                 <!-- Stop-button -->
-                <Button x:Name="btnStop2"
+                <Button x:Name="btnStop"
+                        x:Uid="BTN-Stop"
                         Grid.Column="2"
                         VerticalAlignment="Center"
                         HorizontalAlignment="Left"
@@ -293,6 +297,7 @@
 
                 <!-- Repeat-button -->
                 <ToggleButton x:Name="tbtnRepeat"
+                              x:Uid="TBTN-Repeat"
                               Grid.Column="3"
                               Background="Transparent"
                               Content="&#xE149;"
