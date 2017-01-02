@@ -256,4 +256,13 @@
   <data name="TBTN-Repeat.ToolTipService.ToolTip" xml:space="preserve">
     <value>Repeat</value>
   </data>
+  <data name="BTN-ClosePatreonAd.AutomationProperties.HelpText" xml:space="preserve">
+    <value>Patreon-banner closed</value>
+  </data>
+  <data name="BTN-ClosePatreonAd.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Close Patreon-banner</value>
+  </data>
+  <data name="TalkPage-PatreonBanner.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Support us on Patreon!</value>
+  </data>
 </root>

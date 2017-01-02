@@ -186,6 +186,7 @@
                     </Button.Content>
                 </Button>
                 <Button x:Name="btnClosePatreonAd"
+                        x:Uid="BTN-ClosePatreonAd"
                         Grid.Column="1"
                         Background="Transparent"
                         Content="&#xE106;"
