@@ -125,10 +125,6 @@
     <value>Export to soundfile</value>
     <comment>CommandBar button - About - Label</comment>
   </data>
-  <data name="CBTN-Iap.Label" xml:space="preserve">
-    <value>Remove ads</value>
-    <comment>Commandbar button - Remove advertisements</comment>
-  </data>
   <data name="Message-AcquisitionDuplicate-Message" xml:space="preserve">
     <value>You've already bought this! :)</value>
     <comment>Message - IAP already bought - Message</comment>
@@ -173,14 +169,6 @@
     <value>Export successful</value>
     <comment>Message - Export Successful - Title</comment>
   </data>
-  <data name="MFBTN-RemoveAdsP.Text" xml:space="preserve">
-    <value>Remove Ads (Permanent)</value>
-    <comment>MenuFlyout button - Remove advertisements (Permanent)</comment>
-  </data>
-  <data name="MFBTN-RemoveAdsT1.Text" xml:space="preserve">
-    <value>Remove Ads (90 days)</value>
-    <comment>MenuFlyout button - Remove Ads (90 days)</comment>
-  </data>
   <data name="Settings-About-Changelog.Content" xml:space="preserve">
     <value>Check changelog</value>
     <comment>Settings - About - Go to changelog-button</comment>
@@ -213,10 +201,6 @@
     <value>Type or drop some text here...</value>
     <comment>Talk Page - Input - Placeholder Text</comment>
   </data>
-  <data name="TalkPage-Splitview-Title.Text" xml:space="preserve">
-    <value>SOUNDBOARD</value>
-    <comment>Talk Page - Hamburgermenu - Title</comment>
-  </data>
   <data name="TalkPage-Title.Text" xml:space="preserve">
     <value>TALKINATOR</value>
     <comment>Talk Page - Title</comment>
@@ -244,5 +228,41 @@
   <data name="TalkPage-PatreonBanner.Text" xml:space="preserve">
     <value>Support us on Patreon!</value>
     <comment>Talk Page - Patreon Banner - Text</comment>
+  </data>
+  <data name="BTN-Clear.AutomationProperties.HelpText" xml:space="preserve">
+    <value>Text cleared</value>
+    <comment>BTN Clear - Helptext</comment>
+  </data>
+  <data name="BTN-Clear.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Clear text</value>
+    <comment>BTN Clear - Tooltip</comment>
+  </data>
+  <data name="BTN-Pause.AutomationProperties.HelpText" xml:space="preserve">
+    <value>Playback paused</value>
+  </data>
+  <data name="BTN-Pause.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Pause playback</value>
+  </data>
+  <data name="BTN-Play.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Play</value>
+  </data>
+  <data name="BTN-Stop.AutomationProperties.HelpText" xml:space="preserve">
+    <value>Playback stopped</value>
+  </data>
+  <data name="BTN-Stop.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Stop playback</value>
+    <comment>BTN Stop - Tooltip</comment>
+  </data>
+  <data name="TBTN-Repeat.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Repeat</value>
+  </data>
+  <data name="BTN-ClosePatreonAd.AutomationProperties.HelpText" xml:space="preserve">
+    <value>Patreon-banner closed</value>
+  </data>
+  <data name="BTN-ClosePatreonAd.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Close Patreon-banner</value>
+  </data>
+  <data name="TalkPage-PatreonBanner.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Support us on Patreon!</value>
   </data>
 </root>
