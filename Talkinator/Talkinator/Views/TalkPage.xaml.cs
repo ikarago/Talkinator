@@ -194,6 +194,11 @@ namespace Talkinator.Views
                     randomQuotes.Add("You gotta get Swifty!");
                     randomQuotes.Add("Have you heard about Temida? This young scientist will define the boundraries of time. Maybe you could ask Ikarago about it! ;)");
 
+                    // In memory of mr. Eric 'Haakieeees!' Oltmans, my high school math teacher. Rest In Peace - 16-01-2017
+                    randomQuotes.Add("HAAKIEEEEEEEEES!");
+                    randomQuotes.Add("Pannekoek!");
+                    
+
                     SpeechSynthesisStream synthStream = await synth.SynthesizeTextToStreamAsync(randomQuotes[random.Next(randomQuotes.Count)]);
                     MediaSource mediaSource = MediaSource.CreateFromStream(synthStream, "audio");
                     MediaPlaybackItem playbackItem = new MediaPlaybackItem(mediaSource);
