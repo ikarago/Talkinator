@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Threading.Tasks;
 using Talkinator.Helpers;
 using Talkinator.Services;
 using Windows.ApplicationModel;
@@ -109,50 +110,71 @@ namespace Talkinator.Views
 
         }
 
+        private async Task<bool> PreparePlayback(string text, bool easter)
+        {
+            bool done = false;
+
+            SpeechSynthesisStream synthStream = await synth.SynthesizeTextToStreamAsync(text);
+            MediaSource mediaSource = MediaSource.CreateFromStream(synthStream, "audio");
+            MediaPlaybackItem playbackItem = new MediaPlaybackItem(mediaSource);
+
+            MediaItemDisplayProperties mediaProps = playbackItem.GetDisplayProperties();
+
+            mediaProps.Type = MediaPlaybackType.Music;
+            mediaProps.MusicProperties.Artist = "Talkinator"; // TODO Get name of selected Voice and paste it as Talkinator 'Bob'
+            mediaProps.MusicProperties.Title = "Spoken text";
+            //mediaProps.MusicProperties.Genres.Add("Speech");
+            playbackItem.ApplyDisplayProperties(mediaProps);
+
+            _player.SystemMediaTransportControls.IsEnabled = true;
+
+            _player.Source = playbackItem;
+
+            if (easter == false)
+            {
+                if (_loopEnabled == true)
+                {
+                    _player.IsLoopingEnabled = true;
+                }
+            }
+
+            _player.AutoPlay = true;
+            _player.MediaEnded += _player_MediaEnded;
+
+            done = true;
+            return done;
+        }
 
 
         private async void btnPlay_Click(object sender, RoutedEventArgs e)
         {
+            // Check whether the user has paused playback
             if (_pauseStatus == true)
             {
                 _pauseStatus = false;
                 _player.Play();
             }
+            // If not, it's stopped or new playback
             else
             {
                 if (txtTextToSay.Text != "")
                 {
                     pgrLoading.IsActive = true;
-                    SpeechSynthesisStream synthStream = await synth.SynthesizeTextToStreamAsync(txtTextToSay.Text);
-                    MediaSource mediaSource = MediaSource.CreateFromStream(synthStream, "audio");
-                    MediaPlaybackItem playbackItem = new MediaPlaybackItem(mediaSource);
 
-                    MediaItemDisplayProperties mediaProps = playbackItem.GetDisplayProperties();
-
-                    mediaProps.Type = MediaPlaybackType.Music;
-                    mediaProps.MusicProperties.Artist = "Talkinator"; // TODO Get name of selected Voice and paste it as Talkinator 'Bob'
-                    mediaProps.MusicProperties.Title = "Spoken text";
-                    //mediaProps.MusicProperties.Genres.Add("Speech");
-                    playbackItem.ApplyDisplayProperties(mediaProps);
-
-                    _player.SystemMediaTransportControls.IsEnabled = true;
-
-                    _player.Source = playbackItem;
-
-                    pgrLoading.IsActive = false;
-
-                    if (_loopEnabled == true)
+                    try
                     {
-                        _player.IsLoopingEnabled = true;
+                        await PreparePlayback(txtTextToSay.Text, false);
+
+                        pgrLoading.IsActive = false;
+
+                        _player.Play();
                     }
+                    catch (Exception ex)
+                    {
+                        pgrLoading.IsActive = false;
 
-                    _player.AutoPlay = true;
-                    _player.MediaEnded += _player_MediaEnded;
-
-                    _player.Play();
-
-
-
+                        // Show Error
+                    }
                 }
                 else
                 {
@@ -197,27 +219,20 @@ namespace Talkinator.Views
                     // In memory of mr. Erik 'Haakieeees!' Oltmans, my high school math teacher. Rest In Peace - 16-01-2017
                     randomQuotes.Add("HAAKIEEEEEEEEES!");
                     randomQuotes.Add("Pannekoek!");
-                    
 
-                    SpeechSynthesisStream synthStream = await synth.SynthesizeTextToStreamAsync(randomQuotes[random.Next(randomQuotes.Count)]);
-                    MediaSource mediaSource = MediaSource.CreateFromStream(synthStream, "audio");
-                    MediaPlaybackItem playbackItem = new MediaPlaybackItem(mediaSource);
 
-                    MediaItemDisplayProperties mediaProps = playbackItem.GetDisplayProperties();
+                    try
+                    {
+                        await PreparePlayback(randomQuotes[random.Next(randomQuotes.Count)], true);
 
-                    mediaProps.Type = MediaPlaybackType.Music;
-                    mediaProps.MusicProperties.Artist = "Talkinator"; // TODO Get name of selected Voice and paste it as Talkinator 'Bob'
-                    mediaProps.MusicProperties.Title = "Spoken text";
-                    //mediaProps.MusicProperties.Genres.Add("Speech");
-                    playbackItem.ApplyDisplayProperties(mediaProps);
-
-                    _player.SystemMediaTransportControls.IsEnabled = true;
-
-                    _player.Source = playbackItem;
-
-                    pgrLoading.IsActive = false;
-
-                    _player.AutoPlay = true;
+                        pgrLoading.IsActive = false;
+                        _player.Play();
+                    }
+                    catch (Exception ex)
+                    {
+                        pgrLoading.IsActive = false;
+                        // Show Error
+                    }
                     _player.Play();
                 }
             }
@@ -247,28 +262,15 @@ namespace Talkinator.Views
 
         private async void btnTitle_Click(object sender, RoutedEventArgs e)
         {
-            SpeechSynthesisStream synthStream = await synth.SynthesizeTextToStreamAsync("I'll be back");
-
-            // Set the source of the mediaelement to the synth
-            MediaSource mediaSource = MediaSource.CreateFromStream(synthStream, "audio");
-            MediaPlaybackItem playbackItem = new MediaPlaybackItem(mediaSource);
-
-            MediaItemDisplayProperties mediaProps = playbackItem.GetDisplayProperties();
-
-            mediaProps.Type = MediaPlaybackType.Music;
-            mediaProps.MusicProperties.Artist = "Talkinator"; // TODO Get name of selected Voice and paste it as Talkinator 'Bob'
-            mediaProps.MusicProperties.Title = "Spoken text";
-            //mediaProps.MusicProperties.Genres.Add("Speech");
-            playbackItem.ApplyDisplayProperties(mediaProps);
-
-            _player.SystemMediaTransportControls.IsEnabled = true;
-
-            _player.Source = playbackItem;
-
-            pgrLoading.IsActive = false;
-
-            _player.AutoPlay = true;
-            _player.Play();
+            try
+            {
+                PreparePlayback("I'll be back", true);
+                _player.Play();
+            }
+            catch (Exception ex)
+            {
+                // Play nothing
+            }
         }
 
         private void cbtnAbout_Click(object sender, RoutedEventArgs e)
