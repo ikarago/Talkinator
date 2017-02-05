@@ -88,7 +88,7 @@ namespace Talkinator.Views
         private void GetVoices()
         {
             var voices = SpeechSynthesizer.AllVoices;
-            var currentVoice = synth.Voice;
+            var currentVoice = SpeechSynthesizer.DefaultVoice;
 
             foreach (VoiceInformation voice in voices.OrderBy(v => v.Language))
             {
