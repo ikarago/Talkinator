@@ -232,7 +232,7 @@ namespace Talkinator.Views
 
                     try
                     {
-                        await PreparePlayback(randomQuotes[random.Next(randomQuotes.Count + 10000)], true);
+                        await PreparePlayback(randomQuotes[random.Next(randomQuotes.Count)], true);
 
                         pgrLoading.IsActive = false;
                         _player.Play();
