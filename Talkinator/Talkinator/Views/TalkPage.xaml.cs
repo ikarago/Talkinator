@@ -153,6 +153,10 @@ namespace Talkinator.Views
             {
                 _pauseStatus = false;
                 _player.Play();
+
+                // Hide play-button, show pause-button
+                btnPlay.Visibility = Visibility.Collapsed;
+                btnPause.Visibility = Visibility.Visible;
             }
             // If not, it's stopped or new playback
             else
@@ -166,14 +170,19 @@ namespace Talkinator.Views
                         await PreparePlayback(txtTextToSay.Text, false);
 
                         pgrLoading.IsActive = false;
-
                         _player.Play();
+
+                        // Hide play-button, show pause-button
+                        btnPlay.Visibility = Visibility.Collapsed;
+                        btnPause.Visibility = Visibility.Visible;
                     }
                     catch (Exception ex)
                     {
                         pgrLoading.IsActive = false;
 
                         // Show Error
+                        Debug.WriteLine("Playback error - " + ex.Message);
+                        MessageHelper.ShowErrorDialog("Error-CantPlay-Text", "Error-CantPlay-Title");
                     }
                 }
                 else
@@ -223,22 +232,26 @@ namespace Talkinator.Views
 
                     try
                     {
-                        await PreparePlayback(randomQuotes[random.Next(randomQuotes.Count)], true);
+                        await PreparePlayback(randomQuotes[random.Next(randomQuotes.Count + 10000)], true);
 
                         pgrLoading.IsActive = false;
                         _player.Play();
+
+                        // Hide play-button, show pause-button
+                        btnPlay.Visibility = Visibility.Collapsed;
+                        btnPause.Visibility = Visibility.Visible;
                     }
                     catch (Exception ex)
                     {
                         pgrLoading.IsActive = false;
+
                         // Show Error
+                        Debug.WriteLine("Playback error [EASTER EGG] - " + ex.Message);
+                        MessageHelper.ShowErrorDialog("Error-CantPlay-Text", "Error-CantPlay-Title");
                     }
-                    _player.Play();
                 }
             }
             
-            btnPlay.Visibility = Visibility.Collapsed;
-            btnPause.Visibility = Visibility.Visible;
             txtTextToSay.XYFocusDown = btnPause;
             btnGoToPatreon.XYFocusDown = btnPause;
             btnToSpeechSettings.XYFocusUp = btnPause;
@@ -246,8 +259,6 @@ namespace Talkinator.Views
 
         private async void _player_MediaEnded(MediaPlayer sender, object args)
         {
-            //throw new NotImplementedException();
-            //var dispatcher = Windows.UI.Core.CoreWindow.GetForCurrentThread().Dispatcher;
             await Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
             {
                 btnPause.Visibility = Visibility.Collapsed;
@@ -257,19 +268,18 @@ namespace Talkinator.Views
                 btnToSpeechSettings.XYFocusUp = btnPlay;
             });
 
-            //mediaEnded();
         }
 
         private async void btnTitle_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                PreparePlayback("I'll be back", true);
+                await PreparePlayback("I'll be back", true);
                 _player.Play();
             }
             catch (Exception ex)
             {
-                // Play nothing
+                // Do nothing and pretent that button was a placebo. :P
             }
         }
 

@@ -265,4 +265,12 @@
   <data name="TalkPage-PatreonBanner.ToolTipService.ToolTip" xml:space="preserve">
     <value>Support us on Patreon!</value>
   </data>
+  <data name="Error-CantPlay-Text" xml:space="preserve">
+    <value>We weren't able to play your message. Please try again with a different voice.</value>
+    <comment>Error - Can't Play message - Text</comment>
+  </data>
+  <data name="Error-CantPlay-Title" xml:space="preserve">
+    <value>Something went wrong</value>
+    <comment>Error - Can't Play message - Title</comment>
+  </data>
 </root>
