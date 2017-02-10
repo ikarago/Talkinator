@@ -1,1 +1,1 @@
-C:\Users\pants\Source\Repos\Talkinator\Talkinator\Talkinator\AppPackages\Talkinator_1.3.5.0\Talkinator_1.3.5.0_x86_x64_arm.appxbundle
+C:\Users\pants\Source\Repos\Talkinator\Talkinator\Talkinator\AppPackages\Talkinator_1.3.11.0\Talkinator_1.3.11.0_x86_x64_arm.appxbundle
