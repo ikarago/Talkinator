@@ -16,8 +16,8 @@
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <PackageCertificateKeyFile>Talkinator_StoreKey.pfx</PackageCertificateKeyFile>
-    <PackageCertificateThumbprint>CF758D76CA0ACE1668BAC2BBF5B1BFB1BDE068D8</PackageCertificateThumbprint>
+    <PackageCertificateKeyFile>Talkinator_TemporaryKey.pfx</PackageCertificateKeyFile>
+    <PackageCertificateThumbprint>40037A03A6C6657CB0B490B3D9A92C37822A45A0</PackageCertificateThumbprint>
     <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
     <AppxBundle>Always</AppxBundle>
     <AppxBundlePlatforms>x86|x64|arm</AppxBundlePlatforms>
@@ -94,7 +94,6 @@
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
     <None Include="project.json" />
-    <None Include="Talkinator_StoreKey.pfx" />
     <None Include="Talkinator_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
@@ -167,7 +166,6 @@
     <Content Include="Assets\Logo\Wide310x150Logo.scale-150.png" />
     <Content Include="Assets\Logo\Wide310x150Logo.scale-200.png" />
     <Content Include="Assets\Logo\Wide310x150Logo.scale-400.png" />
-    <None Include="Package.StoreAssociation.xml" />
     <Content Include="Properties\Default.rd.xml" />
   </ItemGroup>
   <ItemGroup>
