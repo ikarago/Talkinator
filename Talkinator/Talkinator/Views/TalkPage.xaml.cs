@@ -296,9 +296,20 @@ namespace Talkinator.Views
 
         private async void btnSendFeedback_Click(object sender, RoutedEventArgs e)
         {
-            // Launch an URI-link
-            var uri = new Uri(@"mailto:ikarago@outlook.com");
-            var success = await Windows.System.Launcher.LaunchUriAsync(uri);
+            // Create a new mail and recipient
+            var mail = new Windows.ApplicationModel.Email.EmailMessage();
+            var recipient = new Windows.ApplicationModel.Email.EmailRecipient();
+
+            // Fill in the recipient info and add it to the email
+            recipient.Address = "ikarago@outlook.com";
+            recipient.Name = "Ikarago";
+            mail.To.Add(recipient);
+
+            // Now set the title of the email
+            mail.Subject = "Talkinator Feedback v" + UpdateHelper.GetVersion();
+
+            // Now open up the Email composer
+            await Windows.ApplicationModel.Email.EmailManager.ShowComposeNewEmailAsync(mail);
         }
 
         private void btnClear_Click(object sender, RoutedEventArgs e)

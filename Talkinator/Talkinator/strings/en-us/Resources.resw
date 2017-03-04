@@ -273,4 +273,36 @@
     <value>Something went wrong</value>
     <comment>Error - Can't Play message - Title</comment>
   </data>
+  <data name="BTN-SpeechSettings.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Go to Speech-settings</value>
+    <comment>BTN - Speech settings - Tooltip</comment>
+  </data>
+  <data name="CBTN-About.ToolTipService.ToolTip" xml:space="preserve">
+    <value>About</value>
+    <comment>CommandBar button - About - Tooltip</comment>
+  </data>
+  <data name="CBTN-Export.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Export to soundfile</value>
+    <comment>CommandBar button - About - Tooltip</comment>
+  </data>
+  <data name="CBTN-SupportUs.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Support us</value>
+    <comment>CommandBar button - Support us - Tooltip</comment>
+  </data>
+  <data name="Settings-About-Changelog.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Check changelog</value>
+    <comment>Settings - About - Go to changelog-button</comment>
+  </data>
+  <data name="Settings-About-GitHub.Content" xml:space="preserve">
+    <value>Check the GitHub-project</value>
+    <comment>Settings - About - To GitHub-button</comment>
+  </data>
+  <data name="Settings-About-GitHub.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Check the GitHub-project</value>
+    <comment>Settings - About - To GitHub-button</comment>
+  </data>
+  <data name="Settings-About-SendFeedback.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Send feedback</value>
+    <comment>Settings - About - Send feedback-button</comment>
+  </data>
 </root>
