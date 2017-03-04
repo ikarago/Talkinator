@@ -208,7 +208,7 @@
         <Grid.ChildrenTransitions>
             <TransitionCollection>
                 <EntranceThemeTransition />
-                <RepositionThemeTransition />
+                <!--<RepositionThemeTransition />-->
             </TransitionCollection>
         </Grid.ChildrenTransitions>
         <Grid.RowDefinitions>
@@ -227,6 +227,7 @@
 
             <!-- Commandbar -->
             <CommandBar ClosedDisplayMode="Compact"
+                        RequestedTheme="Dark"
                         HorizontalAlignment="Stretch"
                         Background="{ThemeResource SystemControlBackgroundAccentBrush}">
                 <CommandBar.Content>
@@ -348,6 +349,11 @@
         <!-- Controls, voices + Patreon-banner-->
         <StackPanel Grid.Row="2"
                     Background="{ThemeResource SystemControlBackgroundListLowBrush}">
+            <StackPanel.ChildrenTransitions>
+                <TransitionCollection>
+                    <RepositionThemeTransition />
+                </TransitionCollection>
+            </StackPanel.ChildrenTransitions>
             <!-- Patreon-banner -->
             <Grid x:Name="gridPatreonBanner"
                   Background="{ThemeResource SystemControlBackgroundAccentBrush}"
@@ -368,10 +374,12 @@
                         Click="cbtnSupportUs_Click">
                     <Button.Content>
                         <StackPanel Orientation="Horizontal">
-                            <Image Source="ms-appx:///Assets/Images/patreon_Logo_white.png" 
+                            <Image Source="ms-appx:///Assets/Images/patreon_Logo_white.png"
+                                   RequestedTheme="Dark"
                                    Height="24"
                                    Width="24"/>
                             <TextBlock x:Uid="TalkPage-PatreonBanner"
+                                       RequestedTheme="Dark"
                                        Text="Support us on Patreon!" 
                                        Margin="12,0"
                                        VerticalAlignment="Center"/>
@@ -381,6 +389,7 @@
                 <Button x:Name="btnClosePatreonAd"
                         x:Uid="BTN-ClosePatreonAd"
                         Grid.Column="1"
+                        RequestedTheme="Dark"
                         Background="Transparent"
                         Content="&#xE106;"
                         FontFamily="Segoe MDL2 Assets"
