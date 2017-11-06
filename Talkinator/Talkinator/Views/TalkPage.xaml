@@ -617,7 +617,7 @@
 
         <!-- Controls, voices + Patreon-banner-->
         <StackPanel Grid.Row="3"
-                    Background="{ThemeResource SystemControlAcrylicElementBrush}">
+                    Background="{ThemeResource SystemControlAcrylicWindowBrush}">
             <StackPanel.ChildrenTransitions>
                 <TransitionCollection>
                     <RepositionThemeTransition />
