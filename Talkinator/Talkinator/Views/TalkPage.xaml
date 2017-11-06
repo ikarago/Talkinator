@@ -4,7 +4,6 @@
     xmlns:local="using:Talkinator.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:controls="using:Talkinator.Views.Controls"
     x:Class="Talkinator.Views.TalkPage"
     mc:Ignorable="d">
     <Page.Resources>
