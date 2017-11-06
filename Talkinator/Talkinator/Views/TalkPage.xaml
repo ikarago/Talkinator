@@ -510,7 +510,7 @@
                 <CommandBar.SecondaryCommands>
                     <AppBarButton x:Name="cbtnSupportUs"
                                   x:Uid="CBTN-SupportUs"
-                                  Visibility="Visible"
+                                  Visibility="Collapsed"
                                   Label="Support us!"
                                   Click="cbtnSupportUs_Click" />
                     <AppBarButton x:Name="cbtnAbout"
