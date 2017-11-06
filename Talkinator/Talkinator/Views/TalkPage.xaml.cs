@@ -49,6 +49,9 @@ namespace Talkinator.Views
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
+            gridPatreonBanner.Visibility = Visibility.Collapsed;
+            btnPlay.XYFocusUp = txtTextToSay;
+            btnPause.XYFocusUp = txtTextToSay;
         }
 
         private async void CheckUpdateStatus()
