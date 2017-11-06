@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Talkinator.Helpers;
 using Talkinator.Services;
 using Windows.ApplicationModel;
+using Windows.ApplicationModel.Core;
 using Windows.ApplicationModel.DataTransfer;
 using Windows.Media;
 using Windows.Media.Core;
@@ -44,6 +45,8 @@ namespace Talkinator.Views
             _mediaControls.AutoRepeatMode = MediaPlaybackAutoRepeatMode.None;
             txtTextToSay.Focus(FocusState.Programmatic);
 
+            var titleBar = CoreApplication.GetCurrentView().TitleBar;
+            titleBar.IsVisibleChanged += TitleBar_IsVisibleChanged;
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -52,6 +55,20 @@ namespace Talkinator.Views
             gridPatreonBanner.Visibility = Visibility.Collapsed;
             btnPlay.XYFocusUp = txtTextToSay;
             btnPause.XYFocusUp = txtTextToSay;
+        }
+
+        private void TitleBar_IsVisibleChanged(CoreApplicationViewTitleBar sender, object args)
+        {
+            if (sender.IsVisible)
+            {
+                titlebar.Visibility = Visibility.Visible;
+                btnTitle.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                titlebar.Visibility = Visibility.Collapsed;
+                btnTitle.Visibility = Visibility.Visible;
+            }
         }
 
         private async void CheckUpdateStatus()

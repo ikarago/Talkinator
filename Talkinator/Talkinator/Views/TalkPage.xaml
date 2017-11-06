@@ -67,7 +67,7 @@
                                     <VisualState x:Name="Checked">
                                         <Storyboard>
                                             <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Fill" Storyboard.TargetName="RootEllipse">
-                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource ToggleButtonBackgroundChecked}"/>
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlAccentAcrylicElementAccentMediumHighBrush}"/>
                                             </ObjectAnimationUsingKeyFrames>
                                             <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Foreground" Storyboard.TargetName="ContentPresenter">
                                                 <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource ToggleButtonForegroundChecked}"/>
@@ -463,15 +463,18 @@
             </TransitionCollection>
         </Grid.ChildrenTransitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="32" x:Name="title" />
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <Grid Background="{ThemeResource SystemControlAccentAcrylicWindowAccentMediumHighBrush}">
+        <Grid x:Name="titlebar"
+              Background="{ThemeResource SystemControlAccentAcrylicWindowAccentMediumHighBrush}"
+              Height="32">
             <TextBlock Text="Talkinator"
                        Style="{ThemeResource CaptionTextBlockStyle}"
+                       RequestedTheme="Dark"
                        Margin="12,0"
                        VerticalAlignment="Center"/>
         </Grid>
@@ -490,6 +493,7 @@
                         Background="{ThemeResource SystemControlAccentAcrylicWindowAccentMediumHighBrush}">
                 <CommandBar.Content>
                     <Button x:Name="btnTitle"
+                            Visibility="Collapsed"
 				            Padding="12"
 				            Background="Transparent"
 				            RelativePanel.AlignVerticalCenterWithPanel="True"
@@ -524,12 +528,14 @@
                                     <StackPanel MinWidth="180">
                                         <TextBlock x:Uid="Settings-About-Title"
                                                    Text="About"
+                                                   FontWeight="SemiBold"
                                                    Style="{ThemeResource SubheaderTextBlockStyle}"
                                                    Margin="0,0,0,8"/>
 
                                         <!-- App info -->
                                         <TextBlock x:Name="appName"                            
                                                    Text="Talkinator"
+                                                   FontWeight="Normal"
                                                    Style="{ThemeResource TitleTextBlockStyle}" />
                                         <TextBlock x:Name="appVersion"
                                                    Text="version" 
@@ -612,7 +618,7 @@
 
         <!-- Controls, voices + Patreon-banner-->
         <StackPanel Grid.Row="3"
-                    Background="{ThemeResource SystemControlBackgroundListLowBrush}">
+                    Background="{ThemeResource SystemControlAcrylicElementBrush}">
             <StackPanel.ChildrenTransitions>
                 <TransitionCollection>
                     <RepositionThemeTransition />
@@ -620,6 +626,7 @@
             </StackPanel.ChildrenTransitions>
             <!-- Patreon-banner -->
             <Grid x:Name="gridPatreonBanner"
+                  Visibility="Collapsed"
                   Background="{ThemeResource SystemControlBackgroundAccentBrush}"
                   BorderBrush="{ThemeResource SystemControlBackgroundBaseMediumBrush}"
                   BorderThickness="0,0,0,0">
@@ -681,7 +688,7 @@
                         Background="Transparent"
                         Content="&#xE106;"
                         FontFamily="Segoe MDL2 Assets" 
-                        FontSize="24"
+                        FontSize="22"
                         Height="48"
                         Width="48"
                         Margin="12,0,6,0"
@@ -700,11 +707,11 @@
                 <Button x:Name="btnPlay"
                         x:Uid="BTN-Play"
                         Grid.Column="1"
-                        Background="{ThemeResource SystemControlBackgroundAccentBrush}"
+                        Background="{ThemeResource SystemControlAccentAcrylicElementAccentMediumHighBrush}"
                         Visibility="Visible"
                         Content="&#xE102;"
                         FontFamily="Segoe MDL2 Assets"
-                        FontSize="36"
+                        FontSize="30"
                         Margin="0"
 				        Padding="0"
                         Height="72"
@@ -721,11 +728,11 @@
                 <Button x:Name="btnPause"
                         x:Uid="BTN-Pause"
                         Grid.Column="1"
-                        Background="{ThemeResource SystemControlBackgroundAccentBrush}"
+                        Background="{ThemeResource SystemControlAccentAcrylicElementAccentMediumHighBrush}"
                         Visibility="Collapsed"
                         Content="&#xE103;"
                         FontFamily="Segoe MDL2 Assets"
-                        FontSize="36"
+                        FontSize="30"
                         Margin="0"
 				        Padding="0"
                         Height="72"
@@ -749,7 +756,7 @@
                         Background="Transparent"
                         Content="&#xE15B;"
                         FontFamily="Segoe MDL2 Assets" 
-                        FontSize="24"
+                        FontSize="22"
                         Height="48"
                         Width="48"
                         Margin="6,0,12,0"
@@ -763,7 +770,7 @@
                               Background="Transparent"
                               Content="&#xE149;"
                               FontFamily="Segoe MDL2 Assets" 
-                              FontSize="24"
+                              FontSize="22"
                               Height="48"
                               Width="48"
                               Margin="12,0"
@@ -785,6 +792,7 @@
                         Background="Transparent"
                         Height="32"
                         XYFocusUp="{x:Bind btnPlay}"
+                        Style="{ThemeResource ButtonRevealStyle}"
                         RelativePanel.AlignLeftWithPanel="True"
                         RelativePanel.AlignVerticalCenterWithPanel="True"
                         Click="btnToSpeechSettings_Click">

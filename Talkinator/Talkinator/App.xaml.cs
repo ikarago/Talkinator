@@ -140,6 +140,10 @@ namespace Talkinator
             ApplicationViewTitleBar titlebar = ApplicationView.GetForCurrentView().TitleBar;
             titlebar.ButtonBackgroundColor = Colors.Transparent;
             titlebar.ButtonInactiveBackgroundColor = Colors.Transparent;
+            titlebar.ButtonForegroundColor = Colors.White;
+            titlebar.ButtonHoverForegroundColor = Colors.White;
+            titlebar.ButtonPressedForegroundColor = Colors.White;
+            titlebar.ButtonInactiveForegroundColor = Colors.Gray;
 
             // Extend the normal window to the Titlebar for the blur to reach there too
             CoreApplicationViewTitleBar coreTitlebar = CoreApplication.GetCurrentView().TitleBar;
