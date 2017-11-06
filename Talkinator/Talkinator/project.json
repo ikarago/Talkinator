@@ -1,11 +1,11 @@
 ﻿{
   "dependencies": {
-    "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.2",
-    "Microsoft.Services.Store.SDK": "10.1610.31001",
+    "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1",
+    "Microsoft.Services.Store.SDK": "10.1705.16001",
     "NotificationsExtensions.Win10": "14332.0.2"
   },
   "frameworks": {
-    "uap10.0": {}
+    "uap10.0.14393": {}
   },
   "runtimes": {
     "win10-arm": {},
