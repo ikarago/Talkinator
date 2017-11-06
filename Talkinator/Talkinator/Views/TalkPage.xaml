@@ -463,16 +463,22 @@
             </TransitionCollection>
         </Grid.ChildrenTransitions>
         <Grid.RowDefinitions>
+            <RowDefinition Height="32" x:Name="title" />
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-
+        <Grid Background="{ThemeResource SystemControlAccentAcrylicWindowAccentMediumHighBrush}">
+            <TextBlock Text="Talkinator"
+                       Style="{ThemeResource CaptionTextBlockStyle}"
+                       Margin="12,0"
+                       VerticalAlignment="Center"/>
+        </Grid>
 
         <!-- Titlebar -->
-        <Grid Grid.Row="0"
-              Background="{ThemeResource SystemControlBackgroundAccentBrush}"
+        <Grid Grid.Row="1"
+              Background="{ThemeResource SystemControlAccentAcrylicWindowAccentMediumHighBrush}"
               HorizontalAlignment="Stretch">
 
 
@@ -480,7 +486,7 @@
             <CommandBar ClosedDisplayMode="Compact"
                         RequestedTheme="Dark"
                         HorizontalAlignment="Stretch"
-                        Background="{ThemeResource SystemControlBackgroundAccentBrush}">
+                        Background="{ThemeResource SystemControlAccentAcrylicWindowAccentMediumHighBrush}">
                 <CommandBar.Content>
                     <Button x:Name="btnTitle"
 				            Padding="12"
@@ -568,7 +574,7 @@
         </Grid>
 
         <!-- Main content -->
-        <ScrollViewer Grid.Row="1"
+        <ScrollViewer Grid.Row="2"
                       ScrollViewer.VerticalScrollBarVisibility="Auto">
             <Grid Margin="0">
                 <Grid.RowDefinitions>
@@ -604,7 +610,7 @@
         </ScrollViewer>
 
         <!-- Controls, voices + Patreon-banner-->
-        <StackPanel Grid.Row="2"
+        <StackPanel Grid.Row="3"
                     Background="{ThemeResource SystemControlBackgroundListLowBrush}">
             <StackPanel.ChildrenTransitions>
                 <TransitionCollection>
