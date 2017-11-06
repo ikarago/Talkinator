@@ -88,6 +88,7 @@ namespace Talkinator
                 Windows.UI.ViewManagement.ApplicationView.GetForCurrentView().SetDesiredBoundsMode(Windows.UI.ViewManagement.ApplicationViewBoundsMode.UseCoreWindow);
             }
 
+            SetWindow();
             SetTitlebar();
             ShowStatusBar();
         }
@@ -144,6 +145,11 @@ namespace Talkinator
             CoreApplicationViewTitleBar coreTitlebar = CoreApplication.GetCurrentView().TitleBar;
             coreTitlebar.ExtendViewIntoTitleBar = true;
 
+        }
+
+        private void SetWindow()
+        {
+            ApplicationView.GetForCurrentView().SetPreferredMinSize(new Size(320, 300));
         }
 
     }

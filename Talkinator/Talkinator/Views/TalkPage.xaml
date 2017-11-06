@@ -486,6 +486,7 @@
             <CommandBar ClosedDisplayMode="Compact"
                         RequestedTheme="Dark"
                         HorizontalAlignment="Stretch"
+                        Style="{ThemeResource CommandBarRevealStyle}"
                         Background="{ThemeResource SystemControlAccentAcrylicWindowAccentMediumHighBrush}">
                 <CommandBar.Content>
                     <Button x:Name="btnTitle"
