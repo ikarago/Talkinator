@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2026
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Talkinator", "Talkinator\Talkinator.csproj", "{C5BE82B7-7097-4CBD-8422-2519AB503931}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Talkinator.UWP.Classic", "Talkinator\Talkinator.UWP.Classic.csproj", "{C5BE82B7-7097-4CBD-8422-2519AB503931}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -36,5 +36,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D7D9DA9E-E435-47CF-A02F-FEB5DFE8F474}
 	EndGlobalSection
 EndGlobal
