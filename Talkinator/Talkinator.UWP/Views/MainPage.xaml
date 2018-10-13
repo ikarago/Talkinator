@@ -23,7 +23,7 @@
                        Height="16"
                        Width="16"
                        Margin="16,0"
-                       Source="/Assets/Logo/Square44x44Logo.targetsize-256_altform-unplated.png" />
+                       Source="/Assets/Logo/contrast-standard/Square44x44Logo.targetsize-256_altform-unplated.png" />
                 <TextBlock Text="Talkinator"
                            Style="{ThemeResource CaptionTextBlockStyle}"
                            RequestedTheme="Dark"
@@ -43,7 +43,7 @@
             <CommandBar.Content>
                 <Button x:Name="btnTitle"
                         Background="Transparent"
-                        Visibility="Visible"
+                        Visibility="Collapsed"
 				        Padding="12">
                     <TextBlock x:Uid="TalkPage-Title"
                                Text="TALKINATOR"
@@ -54,16 +54,19 @@
             <CommandBar.PrimaryCommands>
                 <AppBarButton x:Name="cbtnExport"
                               x:Uid="CBTN-Export"
-                              Label="Export to file"
-                              Icon="Save"/>
+                              Label="Save to file"
+                              Icon="Save"
+                              Command="{x:Bind ViewModel.ExportCommand}"/>
             </CommandBar.PrimaryCommands>
             <CommandBar.SecondaryCommands>
                 <AppBarButton x:Name="cbtnSettings"
                               Label="Settings"
-                              Icon="Setting" />
+                              Icon="Setting"
+                              Command="{x:Bind ViewModel.SettingsCommand}"/>
                 <AppBarButton x:Name="cbtnAbout"
                               x:Uid="CBTN-About"
-				              Label="About">
+				              Label="About"
+                              Command="{x:Bind ViewModel.AboutCommand}">
                     <AppBarButton.Icon>
                         <FontIcon Glyph="&#xE946;" />
                     </AppBarButton.Icon>
@@ -130,6 +133,7 @@
             <TextBox x:Name="txtTextToSay"
                      x:Uid="TalkPage-Input"
                      Grid.Row="0"
+                     Text="{x:Bind ViewModel.Text, Mode=TwoWay}"
 					 PlaceholderText="Type or drop some text"
                      TextWrapping="Wrap"
                      MinHeight="72" 
@@ -172,7 +176,8 @@
                         Margin="12,0,6,0"
                         HorizontalAlignment="Right"
                         VerticalAlignment="Center"
-                        Style="{StaticResource ButtonRound}" />
+                        Style="{StaticResource ButtonRound}"
+                        Command="{x:Bind ViewModel.ClearTextCommand}" />
 
                 <ProgressRing x:Name="pgrLoading"
                               Grid.Column="1"
@@ -188,7 +193,8 @@
                         Content="&#xE102;"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
-                        Style="{StaticResource ButtonRoundPlay}" />
+                        Style="{StaticResource ButtonRoundPlay}"
+                        Command="{x:Bind ViewModel.PlayCommand}" />
 
                 <!-- Pause button -->
                 <Button x:Name="btnPause"
@@ -198,7 +204,8 @@
                         Content="&#xE103;"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
-                        Style="{StaticResource ButtonRoundPlay}" />
+                        Style="{StaticResource ButtonRoundPlay}"
+                        Command="{x:Bind ViewModel.PauseCommand}"/>
 
 
                 <!-- Stop-button -->
@@ -210,7 +217,8 @@
                         Visibility="Visible"
                         Content="&#xE15B;"
                         Margin="6,0,12,0"
-                        Style="{StaticResource ButtonRound}" />
+                        Style="{StaticResource ButtonRound}"
+                        Command="{x:Bind ViewModel.StopCommand}"/>
 
                 <!-- Repeat-button -->
                 <ToggleButton x:Name="tbtnRepeat"

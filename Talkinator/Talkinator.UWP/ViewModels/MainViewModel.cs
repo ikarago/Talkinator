@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 using Talkinator.UWP.Helpers;
+using Windows.Media.SpeechSynthesis;
 
 namespace Talkinator.UWP.ViewModels
 {
@@ -28,11 +29,12 @@ namespace Talkinator.UWP.ViewModels
             set { SetProperty(ref _isLoopOn, value); }
         }
 
-
         // Speech Synth
-
-
+        private SpeechSynthesizer _speechSynthesizer;
+               
         // List of Voices
+
+        // Media controls
 
 
 
@@ -112,10 +114,63 @@ namespace Talkinator.UWP.ViewModels
             }
         }
 
+        private ICommand _exportCommand;
+        public ICommand ExportCommand
+        {
+            get
+            {
+                if (_exportCommand == null)
+                {
+                    _exportCommand = new RelayCommand(
+                    () =>
+                    {
+                        // #TODO
+                    });
+                }
+                return _exportCommand;
+            }
+        }
+
+        private ICommand _aboutCommand;
+        public ICommand AboutCommand
+        {
+            get
+            {
+                if (_aboutCommand == null)
+                {
+                    _aboutCommand = new RelayCommand(
+                        () =>
+                        {
+                            // #TODO
+                        });
+                }
+                return _aboutCommand;
+            }
+        }
+
+        private ICommand _settingsCommand;
+        public ICommand SettingsCommand
+        {
+            get
+            {
+                if (_settingsCommand == null)
+                {
+                    _settingsCommand = new RelayCommand(
+                        () =>
+                        {
+                            // #TODO
+                        });
+                }
+                return _settingsCommand;
+            }
+        }
+
+
 
         // Methods
         private void ClearText()
         {
+            // #TODO Display a warning with a question if the user is sure
             Text = "";
         }
 
