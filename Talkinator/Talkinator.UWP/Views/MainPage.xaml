@@ -23,7 +23,7 @@
                        Height="16"
                        Width="16"
                        Margin="16,0"
-                       Source="/Assets/Logo/contrast-standard/Square44x44Logo.targetsize-256_altform-unplated.png" />
+                       Source="/Assets/Logo/contrast-standard/Square44x44Logo.altform-unplated_targetsize-256.png" />
                 <TextBlock Text="Talkinator"
                            Style="{ThemeResource CaptionTextBlockStyle}"
                            RequestedTheme="Dark"
@@ -247,7 +247,8 @@
                         Grid.Column="0"
                         Background="Transparent"
                         Height="32"
-                        Style="{ThemeResource ButtonRevealStyle}">
+                        Style="{ThemeResource ButtonRevealStyle}"
+                        Command="{x:Bind ViewModel.VoiceSettingsCommand}">
                     <Button.Content>
                         <TextBlock x:Name="tblVoiceIcon"
                                    Text="&#xE13D;"
@@ -259,7 +260,9 @@
                 <ComboBox x:Name="cboxVoices"
                           Grid.Column="1"
                           Margin="0,0,12,0"
-                          HorizontalAlignment="Stretch"/>
+                          HorizontalAlignment="Stretch"
+                          ItemsSource="{x:Bind ViewModel.Voices}"
+                          SelectedItem="{x:Bind ViewModel.SelectedVoice, Mode=TwoWay}"/>
             </Grid>
         </StackPanel>
         <!-- END OF Controls -->

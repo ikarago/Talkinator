@@ -1,6 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Windows.Input;
 using Talkinator.UWP.Helpers;
+using Talkinator.UWP.Models;
+using Windows.Media;
+using Windows.Media.Playback;
 using Windows.Media.SpeechSynthesis;
 
 namespace Talkinator.UWP.ViewModels
@@ -29,19 +34,31 @@ namespace Talkinator.UWP.ViewModels
             set { SetProperty(ref _isLoopOn, value); }
         }
 
-        // Speech Synth
+        // Media stuff
+        private MediaPlayer _mediaPlayer;
+        private SystemMediaTransportControls _mediaControls;
         private SpeechSynthesizer _speechSynthesizer;
-               
+
         // List of Voices
+        private ObservableCollection<VoiceModel> _voices;
+        public ObservableCollection<VoiceModel> Voices
+        {
+            get { return _voices; }
+            set { SetProperty(ref _voices, value); }
+        }
 
-        // Media controls
-
+        private VoiceModel _selectedVoice;
+        public VoiceModel SelectedVoice
+        {
+            get { return _selectedVoice; }
+            set { SetProperty(ref _selectedVoice, value); }
+        }
 
 
         // Constructor
         public MainViewModel()
         {
-            // Initialize this
+            Initialize();
         }
 
 
@@ -165,9 +182,62 @@ namespace Talkinator.UWP.ViewModels
             }
         }
 
+        private ICommand _voiceSettingsCommand;
+        public ICommand VoiceSettingsCommand
+        {
+            get
+            {
+                if (_voiceSettingsCommand == null)
+                {
+                    _voiceSettingsCommand = new RelayCommand(
+                        () =>
+                        {
+                            // #TODO
+                        });
+                }
+                return _voiceSettingsCommand;
+            }
+        }
+
 
 
         // Methods
+        private void Initialize()
+        {
+            // #TODO: Make this more foolproof for when there aren't any voices available
+            _speechSynthesizer = new SpeechSynthesizer();
+            _mediaPlayer = new MediaPlayer();
+
+            //GetVoices();
+
+            // Set stuff for the Media Player
+            IsPlaying = false;
+            IsLoopOn = false;
+            _mediaPlayer.AutoPlay = false;
+            _mediaPlayer.AudioCategory = MediaPlayerAudioCategory.Speech;
+            _mediaControls = _mediaPlayer.SystemMediaTransportControls;
+            _mediaControls.AutoRepeatMode = MediaPlaybackAutoRepeatMode.None;
+        }
+
+        private void GetVoices()
+        {
+            var voices = SpeechSynthesizer.AllVoices;
+            var defaultVoice = SpeechSynthesizer.DefaultVoice;
+
+            // Put the VoiceInformation into an VoiceModel
+            foreach (VoiceInformation voice in voices)
+            {
+                var voiceModel = new VoiceModel(voice);
+                Voices.Add(voiceModel);
+
+                // Check for the default voice of the system and if true set it as the currently selected voice
+                if (voiceModel.VoiceId == defaultVoice.Id)
+                {
+                    SelectedVoice = voiceModel;
+                }
+            }
+        }
+
         private void ClearText()
         {
             // #TODO Display a warning with a question if the user is sure
