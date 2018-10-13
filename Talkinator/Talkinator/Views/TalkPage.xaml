@@ -172,7 +172,8 @@
                          HorizontalAlignment="Stretch"
                          XYFocusDown="{x:Bind btnPlay}"
                          DragOver="txtTextToSay_DragOver" 
-                         Drop="txtTextToSay_Drop" Style="{StaticResource TextBoxNoBackground}">
+                         Drop="txtTextToSay_Drop" 
+                         Style="{StaticResource TextBoxNoBackground}">
                 </TextBox>
                 <!-- END OF - Input -->
 

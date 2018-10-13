@@ -8,7 +8,9 @@ namespace Talkinator.UWP.ViewModels
     {
         public MainViewModel()
         {
-
+            // Speech Synth
+            // List with Voices
+            // Playback settings
         }
     }
 }
