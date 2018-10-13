@@ -127,7 +127,7 @@ namespace Talkinator
                 var statusBar = Windows.UI.ViewManagement.StatusBar.GetForCurrentView();
                 statusBar.BackgroundOpacity = 1;
                 await statusBar.ShowAsync();
-                // use Accentcolour in statusbar
+                // Use Accentcolour in statusbar
                 var accentColour = Application.Current.Resources["SystemControlHighlightAccentBrush"] as SolidColorBrush;
                 statusBar.BackgroundColor = accentColour.Color;
                 statusBar.ForegroundColor = new Windows.UI.Color() { R = 255, G = 255, B = 255 };
