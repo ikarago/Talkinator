@@ -14,6 +14,7 @@ namespace Talkinator.UWP.Models
         public string VoiceName { get { return Voice.DisplayName; } }
         public string VoiceGender { get { return Voice.Gender.ToString(); } }
         public string VoiceLanguage { get { return Voice.Language; } }
+        public string VoiceComboBoxName { get { return Voice.DisplayName + " (Language: " + Voice.Language + ", Gender: " + Voice.Gender + ")"; } }
 
         // Contructor
         public VoiceModel(VoiceInformation voice)

@@ -207,8 +207,9 @@ namespace Talkinator.UWP.ViewModels
             // #TODO: Make this more foolproof for when there aren't any voices available
             _speechSynthesizer = new SpeechSynthesizer();
             _mediaPlayer = new MediaPlayer();
+            _voices = new ObservableCollection<VoiceModel>();
 
-            //GetVoices();
+            GetVoices();
 
             // Set stuff for the Media Player
             IsPlaying = false;
