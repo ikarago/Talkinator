@@ -162,10 +162,10 @@
             <Grid HorizontalAlignment="Center"
                   Padding="0,12">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="72"/>
+                    <ColumnDefinition Width="72"/>
                     <ColumnDefinition Width="108"/>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="72"/>
                 </Grid.ColumnDefinitions>
 
 
@@ -174,8 +174,7 @@
                         x:Uid="BTN-Clear"
                         Grid.Column="0"
                         Content="&#xE106;"
-                        Margin="12,0,6,0"
-                        HorizontalAlignment="Right"
+                        HorizontalAlignment="Center"
                         VerticalAlignment="Center"
                         Style="{StaticResource ButtonRound}"
                         Command="{x:Bind ViewModel.ClearTextCommand}" />
@@ -189,7 +188,7 @@
                 <!-- Play button -->
                 <Button x:Name="btnPlay"
                         x:Uid="BTN-Play"
-                        Grid.Column="1"
+                        Grid.Column="2"
                         Visibility="Visible"
                         Content="&#xE102;"
                         HorizontalAlignment="Center"
@@ -200,7 +199,7 @@
                 <!-- Pause button -->
                 <Button x:Name="btnPause"
                         x:Uid="BTN-Pause"
-                        Grid.Column="1"
+                        Grid.Column="2"
                         Visibility="Collapsed"
                         Content="&#xE103;"
                         HorizontalAlignment="Center"
@@ -208,14 +207,24 @@
                         Style="{StaticResource ButtonRoundPlay}"
                         Command="{x:Bind ViewModel.PauseCommand}"/>
 
-
+                <!-- Rewind-button -->
+                <Button x:Name="btnRewind"
+                        x:Uid="BTN-Stop"
+                        Grid.Column="1"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                        Visibility="Visible"
+                        Content="&#xE100;"
+                        Style="{StaticResource ButtonRound}"
+                        Command="{x:Bind ViewModel.RewindCommand}"/>
+                
                 <!-- Stop-button -->
                 <Button x:Name="btnStop"
                         x:Uid="BTN-Stop"
                         Grid.Column="2"
                         VerticalAlignment="Center"
                         HorizontalAlignment="Left"
-                        Visibility="Visible"
+                        Visibility="Collapsed"
                         Content="&#xE15B;"
                         Margin="6,0,12,0"
                         Style="{StaticResource ButtonRound}"
@@ -226,8 +235,7 @@
                               x:Uid="TBTN-Repeat"
                               Grid.Column="3"
                               Content="&#xE149;"
-                              Margin="12,0"
-                              HorizontalAlignment="Right"
+                              HorizontalAlignment="Center"
                               VerticalAlignment="Center" 
                               Style="{StaticResource ToggleButtonRound}"/>
             </Grid>

@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Talkinator.UWP.Helpers;
 using Talkinator.UWP.Models;
 using Windows.Media;
+using Windows.Media.Core;
 using Windows.Media.Playback;
 using Windows.Media.SpeechSynthesis;
 
@@ -34,8 +36,20 @@ namespace Talkinator.UWP.ViewModels
             set { SetProperty(ref _isLoopOn, value); }
         }
 
+        private bool _isPreparing;
+        public bool IsPreparing
+        {
+            get { return _isPreparing; }
+            set { SetProperty(ref _isPreparing, value); }
+        }
+
         // Media stuff
         private MediaPlayer _mediaPlayer;
+        private MediaPlaybackSession _mediaSession
+        {
+            get { return _mediaPlayer.PlaybackSession; }
+        }
+
         private SystemMediaTransportControls _mediaControls;
         private SpeechSynthesizer _speechSynthesizer;
 
@@ -73,7 +87,7 @@ namespace Talkinator.UWP.ViewModels
                     _playCommand = new RelayCommand(
                         () =>
                         {
-                            // #TODO
+                            Play();
                         });
                 }
                 return _playCommand;
@@ -111,6 +125,23 @@ namespace Talkinator.UWP.ViewModels
                         });
                 }
                 return _stopCommand;
+            }
+        }
+
+        private ICommand _rewindCommand;
+        public ICommand RewindCommand
+        {
+            get
+            {
+                if (_rewindCommand == null)
+                {
+                    _rewindCommand = new RelayCommand(
+                        () =>
+                        {
+                            Rewind();
+                        });
+                }
+                return _rewindCommand;
             }
         }
 
@@ -192,7 +223,7 @@ namespace Talkinator.UWP.ViewModels
                     _voiceSettingsCommand = new RelayCommand(
                         () =>
                         {
-                            // #TODO
+                            ToVoiceSettings();
                         });
                 }
                 return _voiceSettingsCommand;
@@ -239,11 +270,87 @@ namespace Talkinator.UWP.ViewModels
             }
         }
 
+        private async Task<bool> PreparePlayback()
+        {
+            IsPreparing = true;
+            
+            // Create an audio stream of the text
+            SpeechSynthesisStream synthStream = await _speechSynthesizer.SynthesizeTextToStreamAsync(_text);
+            MediaSource mediaSource = MediaSource.CreateFromStream(synthStream, "audio");
+            // Now make a PlaybackItem from this stream
+            MediaPlaybackItem playbackItem = new MediaPlaybackItem(mediaSource);
+
+            // Now set the properties of this PlaybackItem
+            MediaItemDisplayProperties mediaProperties = playbackItem.GetDisplayProperties();
+
+            mediaProperties.Type = MediaPlaybackType.Music;
+            mediaProperties.MusicProperties.Artist = ("Talkinator voiced by " + SelectedVoice.VoiceName);
+            mediaProperties.MusicProperties.Title = "Spoken text";
+
+            playbackItem.ApplyDisplayProperties(mediaProperties);
+
+            // Set this to enabled to make sure the info entered above will be shown in the System UI
+            _mediaPlayer.SystemMediaTransportControls.IsEnabled = true;
+
+            // Set the created item as a Source into the MediaPlayer
+            _mediaPlayer.Source = playbackItem;
+
+            // #TODO: Implement AutoPlay and MediaEnded as well? Need to test their importance first
+
+            // #TODO: Reimplement easter eggs
+            IsPreparing = false;
+            return true;
+        }
+
+        /// <summary>
+        /// Start playback
+        /// </summary>
+        private async void Play()
+        {
+            // If paused; continue the playback session
+            if (_mediaSession.PlaybackState == MediaPlaybackState.Paused)
+            {
+                _mediaPlayer.Play();
+            }
+            else // otherwise start a new playback session
+            {
+                if (Text != "")
+                {
+                    await PreparePlayback();
+                    _mediaPlayer.Play();
+                }
+            }
+        }
+
+        /// <summary>
+        /// Pause playback
+        /// </summary>
+        private void Pause()
+        {
+            _mediaPlayer.Pause();
+        }
+
+        /// <summary>
+        /// Rewind playback
+        /// </summary>
+        private void Rewind()
+        {
+            _mediaPlayer.Pause();
+            _mediaSession.Position = TimeSpan.MinValue;
+            // # TODO: Check for changes in the text to know if the stream needs to be rerendered
+        }
+
+
         private void ClearText()
         {
             // #TODO Display a warning with a question if the user is sure
             Text = "";
         }
 
+        private async void ToVoiceSettings()
+        {
+            var uri = new Uri(@"ms-settings:speech");
+            var success = await Windows.System.Launcher.LaunchUriAsync(uri);
+        }
     }
 }
