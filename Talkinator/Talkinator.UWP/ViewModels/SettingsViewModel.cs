@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using System.Windows.Input;
 
 using Talkinator.UWP.Helpers;
@@ -12,31 +13,11 @@ namespace Talkinator.UWP.ViewModels
     // TODO WTS: Add other settings as necessary. For help see https://github.com/Microsoft/WindowsTemplateStudio/blob/master/docs/pages/settings.md
     public class SettingsViewModel : Observable
     {
-        public Visibility FeedbackLinkVisibility => Microsoft.Services.Store.Engagement.StoreServicesFeedbackLauncher.IsSupported() ? Visibility.Visible : Visibility.Collapsed;
+        // Properties
+        private bool _hasInstanceBeenInitialized = false;
 
-        private ICommand _launchFeedbackHubCommand;
-
-        public ICommand LaunchFeedbackHubCommand
-        {
-            get
-            {
-                if (_launchFeedbackHubCommand == null)
-                {
-                    _launchFeedbackHubCommand = new RelayCommand(
-                        async () =>
-                        {
-                            // This launcher is part of the Store Services SDK https://docs.microsoft.com/en-us/windows/uwp/monetize/microsoft-store-services-sdk
-                            var launcher = Microsoft.Services.Store.Engagement.StoreServicesFeedbackLauncher.GetDefault();
-                            await launcher.LaunchAsync();
-                        });
-                }
-
-                return _launchFeedbackHubCommand;
-            }
-        }
 
         private ElementTheme _elementTheme = ThemeSelectorService.Theme;
-
         public ElementTheme ElementTheme
         {
             get { return _elementTheme; }
@@ -45,7 +26,6 @@ namespace Talkinator.UWP.ViewModels
         }
 
         private string _versionDescription;
-
         public string VersionDescription
         {
             get { return _versionDescription; }
@@ -53,8 +33,20 @@ namespace Talkinator.UWP.ViewModels
             set { Set(ref _versionDescription, value); }
         }
 
-        private ICommand _switchThemeCommand;
 
+        // Constructor
+        public SettingsViewModel()
+        {
+        }
+
+        public void Initialize()
+        {
+            VersionDescription = GetVersionDescription();
+        }
+
+
+        // Commands
+        private ICommand _switchThemeCommand;
         public ICommand SwitchThemeCommand
         {
             get
@@ -73,13 +65,17 @@ namespace Talkinator.UWP.ViewModels
             }
         }
 
-        public SettingsViewModel()
-        {
-        }
 
-        public void Initialize()
+
+        // Methods
+        public async Task EnsureInstanceInitializedAsync()
         {
-            VersionDescription = GetVersionDescription();
+            if (!_hasInstanceBeenInitialized)
+            {
+                Initialize();
+
+                _hasInstanceBeenInitialized = true;
+            }
         }
 
         private string GetVersionDescription()

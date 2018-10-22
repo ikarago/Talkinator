@@ -55,7 +55,7 @@
             <CommandBar.PrimaryCommands>
                 <AppBarButton x:Name="cbtnExport"
                               x:Uid="CBTN-Export"
-                              Label="Save to file"
+                              Label="Export to soundfile"
                               Icon="Save"
                               Command="{x:Bind ViewModel.ExportCommand}"/>
             </CommandBar.PrimaryCommands>
@@ -163,8 +163,8 @@
                   Padding="0,12">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="72"/>
-                    <ColumnDefinition Width="72"/>
                     <ColumnDefinition Width="108"/>
+                    <ColumnDefinition Width="72"/>
                     <ColumnDefinition Width="72"/>
                 </Grid.ColumnDefinitions>
 
@@ -188,7 +188,7 @@
                 <!-- Play button -->
                 <Button x:Name="btnPlay"
                         x:Uid="BTN-Play"
-                        Grid.Column="2"
+                        Grid.Column="1"
                         Visibility="Visible"
                         Content="&#xE102;"
                         HorizontalAlignment="Center"
@@ -199,7 +199,7 @@
                 <!-- Pause button -->
                 <Button x:Name="btnPause"
                         x:Uid="BTN-Pause"
-                        Grid.Column="2"
+                        Grid.Column="1"
                         Visibility="Collapsed"
                         Content="&#xE103;"
                         HorizontalAlignment="Center"
@@ -210,7 +210,7 @@
                 <!-- Stop-button -->
                 <Button x:Name="btnStop"
                         x:Uid="BTN-Stop"
-                        Grid.Column="1"
+                        Grid.Column="2"
                         VerticalAlignment="Center"
                         HorizontalAlignment="Center"
                         Visibility="Visible"

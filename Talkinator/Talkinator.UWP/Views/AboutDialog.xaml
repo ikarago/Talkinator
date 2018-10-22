@@ -7,8 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource SystemControlAcrylicElementBrush}"
-    BorderBrush="{ThemeResource SystemControlForegroundBaseLowBrush}"
->
+    BorderBrush="{ThemeResource SystemControlForegroundBaseLowBrush}">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -61,7 +60,6 @@
             </Grid.ColumnDefinitions>
 
             <!-- App logo -->
-            <!-- #TODO: Make this dynamic with the Light/Dark themes -->
             <Image x:Name="imgLogo"
                    Grid.Column="0"
                    Source="/Assets/Logo/contrast-standard/Square44x44Logo.scale-400.png" 
@@ -85,17 +83,21 @@
                            TextWrapping="Wrap"
                            Margin="{StaticResource EightTopMargin}" />
                 <!-- Privacy Policy -->
-                <HyperlinkButton
-                    x:Uid="About_PrivacyTermsLink"
-                    Margin="{StaticResource EightTopMargin}"
-                    Content="Privacy Policy"
-                    NavigateUri="https://ikarago.tumblr.com/privacy-policy"/>
+                <HyperlinkButton x:Uid="About_PrivacyTermsLink"
+                                 Margin="{StaticResource EightTopMargin}"
+                                 Content="Privacy Policy"
+                                 NavigateUri="https://ikarago.tumblr.com/privacy-policy"/>
+                <!-- Feedback Hub link-->
+                <HyperlinkButton Margin="{StaticResource EightTopMargin}"
+                                 x:Uid="FeedbackHub_Link"
+                                 Content="Feedback Hub"
+                                 Command="{x:Bind ViewModel.LaunchFeedbackHubCommand}"
+                                 Visibility="{x:Bind ViewModel.FeedbackLinkVisibility}" />
                 <!-- GitHub Project -->
-                <HyperlinkButton
-                    x:Uid="About_GitHubLink"
-                    Margin="{StaticResource EightTopMargin}"
-                    Content="GitHub project"
-                    NavigateUri="https://github.com/ikarago/Talkinator"/>
+                <HyperlinkButton x:Uid="About_GitHubLink"
+                                 Margin="{StaticResource EightTopMargin}"
+                                 Content="GitHub project"
+                                 NavigateUri="https://github.com/ikarago/Talkinator"/>
             </StackPanel>
         </Grid>
 

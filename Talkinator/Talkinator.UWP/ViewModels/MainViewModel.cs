@@ -196,7 +196,7 @@ namespace Talkinator.UWP.ViewModels
                     _settingsCommand = new RelayCommand(
                         () =>
                         {
-                            // #TODO
+                            ShowSettingsDialog();
                         });
                 }
                 return _settingsCommand;
@@ -345,6 +345,12 @@ namespace Talkinator.UWP.ViewModels
         private async void ShowAboutDialog()
         {
             var dialog = new AboutDialog();
+            await dialog.ShowAsync();
+        }
+
+        private async void ShowSettingsDialog()
+        {
+            var dialog = new SettingsDialog();
             await dialog.ShowAsync();
         }
 

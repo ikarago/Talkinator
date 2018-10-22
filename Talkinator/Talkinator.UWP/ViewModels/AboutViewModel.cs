@@ -3,14 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using Talkinator.UWP.Helpers;
 using Windows.ApplicationModel;
+using Windows.UI.Xaml;
 
 namespace Talkinator.UWP.ViewModels
 {
     public class AboutViewModel : Observable
     {
         // Properties
+        public Visibility FeedbackLinkVisibility => Microsoft.Services.Store.Engagement.StoreServicesFeedbackLauncher.IsSupported() ? Visibility.Visible : Visibility.Collapsed;
+
         private string _versionNumber;
         public string VersionNumber
         {
@@ -29,6 +33,28 @@ namespace Talkinator.UWP.ViewModels
         public void Initialize()
         {
             VersionNumber = GetVersionNumber();
+        }
+
+
+        // Commands
+        private ICommand _launchFeedbackHubCommand;
+        public ICommand LaunchFeedbackHubCommand
+        {
+            get
+            {
+                if (_launchFeedbackHubCommand == null)
+                {
+                    _launchFeedbackHubCommand = new RelayCommand(
+                        async () =>
+                        {
+                            // This launcher is part of the Store Services SDK https://docs.microsoft.com/en-us/windows/uwp/monetize/microsoft-store-services-sdk
+                            var launcher = Microsoft.Services.Store.Engagement.StoreServicesFeedbackLauncher.GetDefault();
+                            await launcher.LaunchAsync();
+                        });
+                }
+
+                return _launchFeedbackHubCommand;
+            }
         }
 
 
