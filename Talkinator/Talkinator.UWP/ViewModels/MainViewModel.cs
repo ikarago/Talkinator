@@ -134,23 +134,6 @@ namespace Talkinator.UWP.ViewModels
             }
         }
 
-        private ICommand _rewindCommand;
-        public ICommand RewindCommand
-        {
-            get
-            {
-                if (_rewindCommand == null)
-                {
-                    _rewindCommand = new RelayCommand(
-                        () =>
-                        {
-                            Rewind();
-                        });
-                }
-                return _rewindCommand;
-            }
-        }
-
         private ICommand _clearTextCommand;
         public ICommand ClearTextCommand
         {
@@ -341,17 +324,6 @@ namespace Talkinator.UWP.ViewModels
         private void Pause()
         {
             _mediaPlayer.Pause();
-        }
-
-        /// <summary>
-        /// Rewind playback
-        /// </summary>
-        private void Rewind()
-        {
-            _mediaPlayer.Pause();
-            HasPlaybackStopped = true;
-            _mediaSession.Position = TimeSpan.MinValue;
-            // # TODO: Check for changes in the text to know if the stream needs to be rerendered
         }
 
         /// <summary>

@@ -206,17 +206,6 @@
                         VerticalAlignment="Center"
                         Style="{StaticResource ButtonRoundPlay}"
                         Command="{x:Bind ViewModel.PauseCommand}"/>
-
-                <!-- Rewind-button -->
-                <Button x:Name="btnRewind"
-                        x:Uid="BTN-Stop"
-                        Grid.Column="1"
-                        VerticalAlignment="Center"
-                        HorizontalAlignment="Center"
-                        Visibility="Collapsed"
-                        Content="&#xE100;"
-                        Style="{StaticResource ButtonRound}"
-                        Command="{x:Bind ViewModel.RewindCommand}"/>
                 
                 <!-- Stop-button -->
                 <Button x:Name="btnStop"
