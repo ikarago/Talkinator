@@ -229,6 +229,8 @@
                               IsChecked="{x:Bind ViewModel.MediaPlayer.IsLoopingEnabled, Mode=TwoWay}"/>
             </Grid>
 
+            <!-- #TODO: Add a seeker bar? -->
+            
             <!-- Voice Selection -->
             <Grid x:Name="gridVoice"
                   Margin="0,0,0,12"

@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Talkinator.UWP.Helpers;
 using Talkinator.UWP.Models;
+using Talkinator.UWP.Views;
 using Windows.Media;
 using Windows.Media.Core;
 using Windows.Media.Playback;
@@ -178,7 +179,7 @@ namespace Talkinator.UWP.ViewModels
                     _aboutCommand = new RelayCommand(
                         () =>
                         {
-                            // #TODO
+                            ShowAboutDialog();
                         });
                 }
                 return _aboutCommand;
@@ -339,6 +340,12 @@ namespace Talkinator.UWP.ViewModels
         {
             // #TODO Display a warning with a question if the user is sure
             Text = "";
+        }
+
+        private async void ShowAboutDialog()
+        {
+            var dialog = new AboutDialog();
+            await dialog.ShowAsync();
         }
 
         private async void ToVoiceSettings()
