@@ -6,7 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:models="using:Talkinator.UWP.Models"
     mc:Ignorable="d">
-    <Grid>
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
@@ -71,61 +71,9 @@
                     <AppBarButton.Icon>
                         <FontIcon Glyph="&#xE946;" />
                     </AppBarButton.Icon>
-                    <!--<AppBarButton.Flyout>
-                        <Flyout Placement="Bottom">
-                            <Grid>
-                                <StackPanel MinWidth="180">
-                                    <TextBlock x:Uid="Settings-About-Title"
-                                                   Text="About"
-                                                   FontWeight="SemiBold"
-                                                   Style="{ThemeResource SubheaderTextBlockStyle}"
-                                                   Margin="0,0,0,8"/>
-
-                                    --><!-- App info --><!--
-                                    <TextBlock x:Name="appName"                            
-                                                   Text="Talkinator"
-                                                   FontWeight="Normal"
-                                                   Style="{ThemeResource TitleTextBlockStyle}" />
-                                    <TextBlock x:Name="appVersion"
-                                                   Text="version" 
-                                                   FontSize="14"
-                                                   Margin="0,4,0,0"/>
-                                    <TextBlock x:Uid="Settings-About-Copyright"                                       
-                                                   Text="Copyright Ikarago 2016"  
-                                                   FontSize="14"/>
-                                    <TextBlock x:Uid="Settings-About-Rights"
-                                                   Text="All rights reserved" 
-                                                   FontSize="14"/>
-
-                                    --><!-- Buttons --><!--
-                                    <Button x:Name="btnOpenChangelog"
-                                                x:Uid="Settings-About-Changelog"
-                                                Margin="0,8,0,0"
-                                                Style="{StaticResource TextBlockButtonStyle}"
-                                                Padding="0,4"
-                                                Content="See changelog"
-                                                Click="btnOpenChangelog_Click"/>
-                                    <Button x:Name="btnGoToGitHub"
-                                                x:Uid="Settings-About-GitHub"
-                                                Style="{StaticResource TextBlockButtonStyle}"
-                                                Padding="0,4"
-                                                Content="Check the GitHub-project"
-                                                Click="btnOpenChangelog_Click"/>
-                                    <Button x:Name="btnSendFeedback"
-                                                x:Uid="Settings-About-SendFeedback"
-                                                Margin="0,0,0,0"
-                                                Style="{StaticResource TextBlockButtonStyle}"
-                                                Padding="0,4"
-                                                Content="Send feedback" 
-                                                Click="btnSendFeedback_Click"/>
-                                </StackPanel>
-                            </Grid>
-                        </Flyout>
-                    </AppBarButton.Flyout>-->
                 </AppBarButton>
             </CommandBar.SecondaryCommands>
         </CommandBar>
-
         <!-- END OF Commandbar -->
         
         <!-- Main content -->
@@ -147,7 +95,6 @@
                      HorizontalAlignment="Stretch"
                      Style="{StaticResource TextBoxNoBackground}" />
         </ScrollViewer>
-
         <!-- END OF Main content -->
 
         <!-- Controls -->
