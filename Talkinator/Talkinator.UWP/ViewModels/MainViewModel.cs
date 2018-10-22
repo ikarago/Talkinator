@@ -29,13 +29,6 @@ namespace Talkinator.UWP.ViewModels
             set { SetProperty(ref _isPlaying, value); }
         }
 
-        private bool _isLoopOn;
-        public bool IsLoopOn
-        {
-            get { return _isLoopOn; }
-            set { SetProperty(ref _isLoopOn, value); }
-        }
-
         private bool _isPreparing;
         public bool IsPreparing
         {
@@ -43,8 +36,21 @@ namespace Talkinator.UWP.ViewModels
             set { SetProperty(ref _isPreparing, value); }
         }
 
+        private bool _hasPlaybackStopped;
+        public bool HasPlaybackStopped
+        {
+            get { return _hasPlaybackStopped; }
+            set { SetProperty(ref _hasPlaybackStopped, value); }
+        }
+
+
         // Media stuff
         private MediaPlayer _mediaPlayer;
+        public MediaPlayer MediaPlayer
+        {
+            get { return _mediaPlayer; }
+            set { SetProperty(ref _mediaPlayer, value); }
+        }
         private MediaPlaybackSession _mediaSession
         {
             get { return _mediaPlayer.PlaybackSession; }
@@ -121,7 +127,7 @@ namespace Talkinator.UWP.ViewModels
                     _stopCommand = new RelayCommand(
                         () =>
                         {
-                            // # TODO
+                            Stop();
                         });
                 }
                 return _stopCommand;
@@ -244,7 +250,7 @@ namespace Talkinator.UWP.ViewModels
 
             // Set stuff for the Media Player
             IsPlaying = false;
-            IsLoopOn = false;
+            HasPlaybackStopped = true;
             _mediaPlayer.AutoPlay = false;
             _mediaPlayer.AudioCategory = MediaPlayerAudioCategory.Speech;
             _mediaControls = _mediaPlayer.SystemMediaTransportControls;
@@ -295,11 +301,17 @@ namespace Talkinator.UWP.ViewModels
             // Set the created item as a Source into the MediaPlayer
             _mediaPlayer.Source = playbackItem;
 
-            // #TODO: Implement AutoPlay and MediaEnded as well? Need to test their importance first
+            // #TODO: Implement AutoPlay as well? Need to test their importance first
+            _mediaPlayer.MediaEnded += _mediaPlayer_MediaEnded;
 
             // #TODO: Reimplement easter eggs
             IsPreparing = false;
             return true;
+        }
+
+        private void _mediaPlayer_MediaEnded(MediaPlayer sender, object args)
+        {
+            HasPlaybackStopped = true;
         }
 
         /// <summary>
@@ -308,7 +320,7 @@ namespace Talkinator.UWP.ViewModels
         private async void Play()
         {
             // If paused; continue the playback session
-            if (_mediaSession.PlaybackState == MediaPlaybackState.Paused)
+            if (_mediaSession.PlaybackState == MediaPlaybackState.Paused && _hasPlaybackStopped == false)
             {
                 _mediaPlayer.Play();
             }
@@ -317,6 +329,7 @@ namespace Talkinator.UWP.ViewModels
                 if (Text != "")
                 {
                     await PreparePlayback();
+                    HasPlaybackStopped = false;
                     _mediaPlayer.Play();
                 }
             }
@@ -336,10 +349,19 @@ namespace Talkinator.UWP.ViewModels
         private void Rewind()
         {
             _mediaPlayer.Pause();
+            HasPlaybackStopped = true;
             _mediaSession.Position = TimeSpan.MinValue;
             // # TODO: Check for changes in the text to know if the stream needs to be rerendered
         }
 
+        /// <summary>
+        /// Stop the current playback entirely
+        /// </summary>
+        private void Stop()
+        {
+            _mediaPlayer.Pause();
+            HasPlaybackStopped = true;
+        }
 
         private void ClearText()
         {
