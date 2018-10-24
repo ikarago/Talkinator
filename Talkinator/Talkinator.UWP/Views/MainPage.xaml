@@ -6,9 +6,13 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:convertors="using:Windows.UI.Xaml"
     xmlns:models="using:Talkinator.UWP.Models"
+    xmlns:contract7Present="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract, 7)"
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <contract7Present:Grid.BackgroundTransition>
+            <BrushTransition />
+        </contract7Present:Grid.BackgroundTransition>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
@@ -157,7 +161,7 @@
 
                 <Grid Grid.Column="1"
                       Canvas.ZIndex="370"
-                      Background="{x:Bind stackControls.Background}"
+                      Background="{x:Bind stackControls.Background, Mode=OneWay}"
                       Visibility="{x:Bind ViewModel.IsPlaying, Mode=OneWay}">
                     <!-- Pause button -->
                     <Button x:Name="btnPause"

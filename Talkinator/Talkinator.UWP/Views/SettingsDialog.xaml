@@ -5,8 +5,11 @@
     xmlns:local="using:Talkinator.UWP.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:contract7Present="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract, 7)"
+
     xmlns:helper="using:Talkinator.UWP.Helpers"
     xmlns:xaml="using:Windows.UI.Xaml"
+
     Background="{ThemeResource SystemControlAcrylicElementBrush}"
     BorderBrush="{ThemeResource SystemControlForegroundBaseLowBrush}"
     
@@ -19,6 +22,9 @@
     </ContentDialog.Resources>
 
     <Grid Margin="0">
+        <contract7Present:Grid.BackgroundTransition>
+            <BrushTransition />
+        </contract7Present:Grid.BackgroundTransition>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
