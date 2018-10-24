@@ -4,8 +4,10 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:convertors="using:Windows.UI.Xaml"
     xmlns:models="using:Talkinator.UWP.Models"
     mc:Ignorable="d">
+
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -17,6 +19,7 @@
         <!-- Titlebar -->
         <Grid x:Name="gridTitlebar"
               Grid.Row="0"
+              Canvas.ZIndex="500"
               Background="{ThemeResource SystemControlAccentAcrylicWindowAccentMediumHighBrush}"
               Height="32">
             <StackPanel Orientation="Horizontal">
@@ -37,6 +40,7 @@
         <!-- Commandbar -->
         <CommandBar x:Name="cbarTop"
                     Grid.Row="1"
+                    Canvas.ZIndex="400"
                     Background="{ThemeResource SystemControlAccentAcrylicWindowAccentMediumHighBrush}"
                     RequestedTheme="Dark"
                     HorizontalAlignment="Stretch"
@@ -77,7 +81,8 @@
         <!-- END OF Commandbar -->
         
         <!-- Main content -->
-        <ScrollViewer Grid.Row="2">
+        <ScrollViewer Grid.Row="2"
+                      Canvas.ZIndex="100">
             <!-- Input -->
             <TextBox x:Name="txtTextToSay"
                      x:Uid="TalkPage-Input"
@@ -98,7 +103,9 @@
         <!-- END OF Main content -->
 
         <!-- Controls -->
-        <StackPanel Grid.Row="3"
+        <StackPanel x:Name="stackControls"
+                    Grid.Row="3"
+                    Canvas.ZIndex="300"
                     Background="{ThemeResource SystemControlAcrylicWindowBrush}">
             <StackPanel.ChildrenTransitions>
                 <TransitionCollection>
@@ -106,7 +113,9 @@
                 </TransitionCollection>
             </StackPanel.ChildrenTransitions>
             <!-- Controls -->
-            <Grid HorizontalAlignment="Center"
+            <Grid Canvas.ZIndex="350"
+                  HorizontalAlignment="Center"
+                  MinHeight="120"
                   Padding="0,12">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="72"/>
@@ -128,31 +137,38 @@
 
                 <ProgressRing x:Name="pgrLoading"
                               Grid.Column="1"
+                              Canvas.ZIndex="380"
                               Height="96"
                               Width="96"
-                              IsActive="False"/>
+                              IsActive="True"
+                              Visibility="{x:Bind ViewModel.IsPreparing, Mode=OneWay}"/>
 
                 <!-- Play button -->
                 <Button x:Name="btnPlay"
                         x:Uid="BTN-Play"
                         Grid.Column="1"
-                        Visibility="Visible"
+                        Canvas.ZIndex="370"
+                        Visibility="{x:Bind ViewModel.IsNotPlaying, Mode=OneWay}"
                         Content="&#xE102;"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
                         Style="{StaticResource ButtonRoundPlay}"
                         Command="{x:Bind ViewModel.PlayCommand}" />
 
-                <!-- Pause button -->
-                <Button x:Name="btnPause"
-                        x:Uid="BTN-Pause"
-                        Grid.Column="1"
-                        Visibility="Collapsed"
-                        Content="&#xE103;"
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Center"
-                        Style="{StaticResource ButtonRoundPlay}"
-                        Command="{x:Bind ViewModel.PauseCommand}"/>
+                <Grid Grid.Column="1"
+                      Canvas.ZIndex="370"
+                      Background="{x:Bind stackControls.Background}"
+                      Visibility="{x:Bind ViewModel.IsPlaying, Mode=OneWay}">
+                    <!-- Pause button -->
+                    <Button x:Name="btnPause"
+                            x:Uid="BTN-Pause"
+                            Content="&#xE103;"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Style="{StaticResource ButtonRoundPlay}"
+                            Command="{x:Bind ViewModel.PauseCommand}"/>
+                </Grid>
+
                 
                 <!-- Stop-button -->
                 <Button x:Name="btnStop"
@@ -180,6 +196,7 @@
             
             <!-- Voice Selection -->
             <Grid x:Name="gridVoice"
+                  Canvas.ZIndex="301"
                   Margin="0,0,0,12"
                   Padding="0,12,0,0"
                   BorderBrush="{ThemeResource SystemControlBackgroundBaseMediumBrush}"

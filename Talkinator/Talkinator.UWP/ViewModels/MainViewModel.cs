@@ -29,6 +29,10 @@ namespace Talkinator.UWP.ViewModels
             get { return _isPlaying; }
             set { SetProperty(ref _isPlaying, value); }
         }
+        public bool IsNotPlaying
+        {
+            get { return !_isPlaying; }
+        }
 
         private bool _isPreparing;
         public bool IsPreparing
@@ -111,7 +115,7 @@ namespace Talkinator.UWP.ViewModels
                     _pauseCommand = new RelayCommand(
                         () =>
                         {
-                            // #TODO
+                            Pause();
                         });
                 }
                 return _pauseCommand;
@@ -293,9 +297,13 @@ namespace Talkinator.UWP.ViewModels
             return true;
         }
 
-        private void _mediaPlayer_MediaEnded(MediaPlayer sender, object args)
+        private async void _mediaPlayer_MediaEnded(MediaPlayer sender, object args)
         {
-            HasPlaybackStopped = true;
+            await Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
+            {
+                IsPlaying = false;
+                HasPlaybackStopped = true;
+            });
         }
 
         /// <summary>
@@ -306,6 +314,7 @@ namespace Talkinator.UWP.ViewModels
             // If paused; continue the playback session
             if (_mediaSession.PlaybackState == MediaPlaybackState.Paused && _hasPlaybackStopped == false)
             {
+                IsPlaying = true;
                 _mediaPlayer.Play();
             }
             else // otherwise start a new playback session
@@ -314,6 +323,7 @@ namespace Talkinator.UWP.ViewModels
                 {
                     await PreparePlayback();
                     HasPlaybackStopped = false;
+                    IsPlaying = true;
                     _mediaPlayer.Play();
                 }
             }
@@ -325,6 +335,7 @@ namespace Talkinator.UWP.ViewModels
         private void Pause()
         {
             _mediaPlayer.Pause();
+            IsPlaying = false;
         }
 
         /// <summary>
@@ -333,6 +344,7 @@ namespace Talkinator.UWP.ViewModels
         private void Stop()
         {
             _mediaPlayer.Pause();
+            IsPlaying = false;
             HasPlaybackStopped = true;
         }
 

@@ -10,9 +10,15 @@ namespace Talkinator.UWP.Views
     {
         public MainViewModel ViewModel { get; } = new MainViewModel();
 
+
+        // Constructor
         public MainPage()
         {
             InitializeComponent();
         }
+
+
+        // Methods
+
     }
 }
