@@ -30,7 +30,7 @@
                     Command="{x:Bind CloseDialogCommand}"/>
             <TextBlock x:Uid="About_Title"
                        Text="About"
-                       Margin="12,0"
+                       Margin="18,0"
                        VerticalAlignment="Center"
                        Style="{ThemeResource TitleTextBlockStyle}"
                        FontWeight="Bold"/>
@@ -43,7 +43,8 @@
                        Padding="0,0,0,6"
                        BorderBrush="{ThemeResource SystemControlBackgroundBaseLowBrush}"
                        BorderThickness="0,0,0,1">
-            <TextBlock Text="About"
+            <TextBlock x:Uid="About_Title"
+                       Text="About"
                        FontWeight="Bold"
                        Style="{ThemeResource TitleTextBlockStyle}"
                        RelativePanel.AlignVerticalCenterWithPanel="True"/>
@@ -74,8 +75,7 @@
             <StackPanel Grid.Column="1"
                         Margin="24,0,12,0">
                 <!-- App Title -->
-                <!-- #TODO: Make this more dynamic -->
-                <TextBlock Text="Talkinator"
+                <TextBlock Text="{x:Bind ViewModel.AppName}"
                            Style="{ThemeResource SubtitleTextBlockStyle}"
                            FontWeight="Bold"/>
                 <!-- Version number -->
@@ -83,7 +83,7 @@
                            Style="{ThemeResource CaptionTextBlockStyle}"/>
                 <!-- About Description -->
                 <TextBlock Text="Talkinator, created and programmed by Ikarago, 2016-2018"
-                           x:Uid="About_AboutDescription"
+                           x:Uid="About_Description"
                            TextWrapping="Wrap"
                            Margin="{StaticResource EightTopMargin}" />
                 <!-- Privacy Policy -->
@@ -94,7 +94,7 @@
                 <!-- Feedback Hub link-->
                 <HyperlinkButton Margin="{StaticResource EightTopMargin}"
                                  x:Uid="FeedbackHub_Link"
-                                 Content="Feedback Hub"
+                                 Content="Feedback"
                                  Command="{x:Bind ViewModel.LaunchFeedbackHubCommand}"
                                  Visibility="{x:Bind ViewModel.FeedbackLinkVisibility}" />
                 <!-- GitHub Project -->

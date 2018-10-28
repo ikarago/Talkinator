@@ -15,6 +15,13 @@ namespace Talkinator.UWP.ViewModels
         // Properties
         public Visibility FeedbackLinkVisibility => Microsoft.Services.Store.Engagement.StoreServicesFeedbackLauncher.IsSupported() ? Visibility.Visible : Visibility.Collapsed;
 
+        private string _appName;
+        public string AppName
+        {
+            get { return _appName; }
+            set { Set(ref _appName, value); }
+        }
+
         private string _versionNumber;
         public string VersionNumber
         {
@@ -32,6 +39,7 @@ namespace Talkinator.UWP.ViewModels
         // Initialize Stuff
         public void Initialize()
         {
+            AppName = GetAppName();
             VersionNumber = GetVersionNumber();
         }
 
@@ -59,6 +67,14 @@ namespace Talkinator.UWP.ViewModels
 
 
         // Methods
+        private string GetAppName()
+        {
+            var package = Package.Current;
+            string appName = package.DisplayName;
+
+            return appName;
+        }
+
         private string GetVersionNumber()
         {
             var package = Package.Current;

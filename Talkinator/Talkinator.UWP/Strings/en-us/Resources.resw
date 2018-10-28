@@ -118,11 +118,11 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AppDisplayName" xml:space="preserve">
-    <value>Talkinator.UWP</value>
+    <value>Talkinator</value>
     <comment>Application display name</comment>
   </data>
   <data name="AppDescription" xml:space="preserve">
-    <value>Talkinator.UWP</value>
+    <value>Talkinator</value>
     <comment>Application description</comment>
   </data>
   <data name="Main_Title.Text" xml:space="preserve">
@@ -149,51 +149,44 @@
     <value>Light</value>
     <comment>Light theme text for Settings</comment>
   </data>
-  <data name="Settings_About.Text" xml:space="preserve">    
-    <value>About this application</value>
-    <comment>About this application title for Settings</comment>
-  </data>
-  <data name="Settings_AboutDescription.Text" xml:space="preserve">    
-    <value>Settings page placeholder text.  Your app description goes here.</value>
+  <data name="About_Description.Text" xml:space="preserve">
+    <value>Created and programmed by Ikarago, 2016-2018</value>
     <comment>About this application description for Settings</comment>
   </data>
-  <data name="Settings_PrivacyTermsLink.Content" xml:space="preserve">    
-    <value>Privacy Statement</value>
-    <comment>Privacy Statement link content for Settings</comment>
+  <data name="About_PrivacyTermsLink.Content" xml:space="preserve">
+    <value>Privacy Policy</value>
+    <comment>Privacy Statement link content for About</comment>
   </data>
-  <data name="Settings_PrivacyTermsLink.NavigateUri" xml:space="preserve">  
-    <value>https://YourPrivacyUrlGoesHere/</value>
-    <comment>Here is your Privacy Statement url for Settings</comment>
+  <data name="About_PrivacyTermsLink.NavigateUri" xml:space="preserve">
+    <value>https://ikarago.tumblr.com/privacy-policy</value>
+    <comment>Here is your Privacy Statement url for About</comment>
   </data>
-  <data name="Settings_Personalization.Text" xml:space="preserve">   
+  <data name="Settings_Personalization.Text" xml:space="preserve">
     <value>Personalization</value>
     <comment>Personalization text for Settings</comment>
   </data>
-  <data name="ExceptionEnumToBooleanConverterValueMustBeAnEnum" xml:space="preserve">   
+  <data name="ExceptionEnumToBooleanConverterValueMustBeAnEnum" xml:space="preserve">
     <value>value must be an Enum!</value>
     <comment>Value must be an Enum in enum to boolean converter</comment>
   </data>
-  <data name="ExceptionEnumToBooleanConverterParameterMustBeAnEnumName" xml:space="preserve">   
+  <data name="ExceptionEnumToBooleanConverterParameterMustBeAnEnumName" xml:space="preserve">
     <value>parameter must be an Enum name!</value>
     <comment>Parameter must be an Enum name in enum to boolean converter</comment>
   </data>
   <data name="Settings_Title.Text" xml:space="preserve">
     <value>Settings</value>
-    <comment>Page title for SettingsPage</comment>
+    <comment>Dialog title for SettingsDialog</comment>
   </data>
   <data name="ExceptionViewLifeTimeControlViewDisposal" xml:space="preserve">
     <value>This view is being disposed.</value>
     <comment>View disposed</comment>
   </data>
   <data name="AfterUpdate_Body.Text" xml:space="preserve">
-    <value>Replace the content of this dialog with whatever content is appropriate to your app.
-You might want to consider lists of bug fixes and new features.
-Don't feel restricted to just text. You can also include images and animations if you wish too.
+    <value>Welcome to this reworked version of Talkinator! We hope you've enjoyed the app so far. :)
 
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.
-Nunc viverra imperdiet enim. Fusce est. Vivamus a tellus.
-Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin pharetra nonummy pede. Mauris et orci.
-Suspendisse dui purus, scelerisque at, vulputate vitae, pretium mattis, nunc. Mauris eget neque at sem venenatis eleifend. Ut nonummy.</value>
+New in this version are:
+- A new fluent look!
+- A ton of stability improvements</value>
     <comment>What's new prompt message body</comment>
   </data>
   <data name="AfterUpdate_Title.Text" xml:space="preserve">
@@ -203,5 +196,89 @@ Suspendisse dui purus, scelerisque at, vulputate vitae, pretium mattis, nunc. Ma
   <data name="FeedbackHub_Link.Content" xml:space="preserve">
     <value>Feedback</value>
     <comment>Displayed as the link to launching the Feedback Hub.</comment>
+  </data>
+  <data name="About_GitHubLink.Content" xml:space="preserve">
+    <value>GitHub project</value>
+    <comment>Link to the GitHub Project</comment>
+  </data>
+  <data name="About_GitHubLink.NavigateUri" xml:space="preserve">
+    <value>https://github.com/ikarago/Talkinator</value>
+    <comment>GitHub Project URL</comment>
+  </data>
+  <data name="About_Title.Text" xml:space="preserve">
+    <value>About</value>
+    <comment>Dialog title for AboutDialog</comment>
+  </data>
+  <data name="BTN-Clear.AutomationProperties.HelpText" xml:space="preserve">
+    <value>Text cleared</value>
+    <comment>BTN Clear - Helptext</comment>
+  </data>
+  <data name="BTN-Clear.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Clear text</value>
+    <comment>BTN Clear - Tooltip</comment>
+  </data>
+  <data name="BTN-ClosePatreonAd.AutomationProperties.HelpText" xml:space="preserve">
+    <value>Patreon-banner closed</value>
+  </data>
+  <data name="BTN-ClosePatreonAd.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Close Patreon-banner</value>
+  </data>
+  <data name="BTN-Pause.AutomationProperties.HelpText" xml:space="preserve">
+    <value>Playback paused</value>
+  </data>
+  <data name="BTN-Pause.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Pause playback</value>
+  </data>
+  <data name="BTN-Play.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Play</value>
+  </data>
+  <data name="BTN-SpeechSettings.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Go to Speech-settings</value>
+    <comment>BTN - Speech settings - Tooltip</comment>
+  </data>
+  <data name="BTN-Stop.AutomationProperties.HelpText" xml:space="preserve">
+    <value>Playback stopped</value>
+  </data>
+  <data name="BTN-Stop.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Stop playback</value>
+    <comment>BTN Stop - Tooltip</comment>
+  </data>
+  <data name="CBTN-About.Label" xml:space="preserve">
+    <value>About</value>
+    <comment>CommandBar button - About - Label</comment>
+  </data>
+  <data name="CBTN-About.ToolTipService.ToolTip" xml:space="preserve">
+    <value>About</value>
+    <comment>CommandBar button - About - Tooltip</comment>
+  </data>
+  <data name="CBTN-Export.Label" xml:space="preserve">
+    <value>Export to soundfile</value>
+    <comment>CommandBar button - About - Label</comment>
+  </data>
+  <data name="CBTN-Export.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Export to soundfile</value>
+    <comment>CommandBar button - About - Tooltip</comment>
+  </data>
+  <data name="CBTN-Settings.Label" xml:space="preserve">
+    <value>Settings</value>
+    <comment>CommandBar Button - Settings</comment>
+  </data>
+  <data name="CBTN-Settings.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="MainPage_AppTitle.Text" xml:space="preserve">
+    <value>Talkinator</value>
+    <comment>MainPage - Titlebar - Title</comment>
+  </data>
+  <data name="MainPage_Input.PlaceholderText" xml:space="preserve">
+    <value>Type or drop some text here...</value>
+    <comment>MainPage - Input - Placeholder Text</comment>
+  </data>
+  <data name="MainPage_Title.Text" xml:space="preserve">
+    <value>TALKINATOR</value>
+    <comment>MainPage - Title (All Caps)</comment>
+  </data>
+  <data name="TBTN-Repeat.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Repeat</value>
   </data>
 </root>

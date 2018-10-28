@@ -32,7 +32,8 @@
                        Width="16"
                        Margin="16,0"
                        Source="/Assets/Logo/contrast-standard/Square44x44Logo.altform-unplated_targetsize-256.png" />
-                <TextBlock Text="Talkinator"
+                <TextBlock x:Uid="MainPage_AppTitle"
+                           Text="Talkinator"
                            Style="{ThemeResource CaptionTextBlockStyle}"
                            RequestedTheme="Dark"
                            Margin="4,0,12,0"
@@ -54,7 +55,7 @@
                         Background="Transparent"
                         Visibility="Collapsed"
 				        Padding="12">
-                    <TextBlock x:Uid="TalkPage-Title"
+                    <TextBlock x:Uid="MainPage_Title"
                                Text="TALKINATOR"
 					           Style="{ThemeResource BaseTextBlockStyle}"
 					           RequestedTheme="Dark"/>
@@ -69,6 +70,7 @@
             </CommandBar.PrimaryCommands>
             <CommandBar.SecondaryCommands>
                 <AppBarButton x:Name="cbtnSettings"
+                              x:Uid="CBTN-Settings"
                               Label="Settings"
                               Icon="Setting"
                               Command="{x:Bind ViewModel.SettingsCommand}"/>
@@ -89,7 +91,7 @@
                       Canvas.ZIndex="100">
             <!-- Input -->
             <TextBox x:Name="txtTextToSay"
-                     x:Uid="TalkPage-Input"
+                     x:Uid="MainPage_Input"
                      Grid.Row="0"
                      Text="{x:Bind ViewModel.Text, Mode=TwoWay}"
 					 PlaceholderText="Type or drop some text"

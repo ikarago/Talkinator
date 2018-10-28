@@ -3,7 +3,7 @@
   <Identity Name="A3CDA70E-11BA-4B8B-85B2-4E2D51F7AEA7" Publisher="CN=pants" Version="1.0.0.0" />
   <mp:PhoneIdentity PhoneProductId="A3CDA70E-11BA-4B8B-85B2-4E2D51F7AEA7" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
-    <DisplayName>Talkinator.UWP</DisplayName>
+    <DisplayName>Talkinator</DisplayName>
     <PublisherDisplayName>pants</PublisherDisplayName>
     <Logo>Assets\Logo\StoreLogo.png</Logo>
   </Properties>
