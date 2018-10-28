@@ -77,7 +77,11 @@ namespace Talkinator.UWP.ViewModels
         public VoiceModel SelectedVoice
         {
             get { return _selectedVoice; }
-            set { SetProperty(ref _selectedVoice, value); }
+            set
+            {
+                SetProperty(ref _selectedVoice, value);
+                _speechSynthesizer.Voice = _selectedVoice.Voice;
+            }
         }
 
 

@@ -105,7 +105,8 @@
                      VerticalAlignment="Stretch"
                      HorizontalAlignment="Stretch"
                      Style="{StaticResource TextBoxNoBackground}"
-                     Drop="txtTextToSay_Drop" DragOver="txtTextToSay_DragOver" />
+                     Drop="txtTextToSay_Drop"
+                     DragOver="txtTextToSay_DragOver" />
         </ScrollViewer>
         <!-- END OF Main content -->
 
