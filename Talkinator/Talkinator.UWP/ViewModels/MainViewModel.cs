@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Talkinator.UWP.Helpers;
 using Talkinator.UWP.Models;
+using Talkinator.UWP.Services;
 using Talkinator.UWP.Views;
 using Windows.Media;
 using Windows.Media.Core;
@@ -166,7 +167,7 @@ namespace Talkinator.UWP.ViewModels
                     _exportCommand = new RelayCommand(
                     () =>
                     {
-                        // #TODO
+                        Export();
                     });
                 }
                 return _exportCommand;
@@ -352,6 +353,13 @@ namespace Talkinator.UWP.ViewModels
         {
             // #TODO Display a warning with a question if the user is sure
             Text = "";
+        }
+
+        private async void Export()
+        {
+            // #TODO: Make this a proper service, not the crap that it used to be
+            var exportService = new ExportService();
+            await exportService.ExportSpeechToFile(Text, SelectedVoice.Voice);
         }
 
         private async void ShowAboutDialog()
