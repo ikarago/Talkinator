@@ -25,6 +25,13 @@ namespace Talkinator.UWP.ViewModels
             set { SetProperty(ref _text, value); }
         }
 
+        private string _secretText;
+        public string SecretText
+        {
+            get { return _secretText; }
+            set { SetProperty(ref _secretText, value); }
+        }
+
         private bool _isPlaying;
         public bool IsPlaying
         {
@@ -276,9 +283,20 @@ namespace Talkinator.UWP.ViewModels
         private async Task<bool> PreparePlayback()
         {
             IsPreparing = true;
-            
+
             // Create an audio stream of the text
-            SpeechSynthesisStream synthStream = await _speechSynthesizer.SynthesizeTextToStreamAsync(_text);
+            SpeechSynthesisStream synthStream;
+            // Check if any text has been entered, otherwise play a secret message
+            if (Text == "")
+            {
+                // Randomize Text
+                SetSecretText();
+                synthStream = await _speechSynthesizer.SynthesizeTextToStreamAsync(SecretText);
+            }
+            else
+            {
+                synthStream = await _speechSynthesizer.SynthesizeTextToStreamAsync(Text);
+            }
             MediaSource mediaSource = MediaSource.CreateFromStream(synthStream, "audio");
             // Now make a PlaybackItem from this stream
             MediaPlaybackItem playbackItem = new MediaPlaybackItem(mediaSource);
@@ -315,6 +333,52 @@ namespace Talkinator.UWP.ViewModels
             });
         }
 
+        private void SetSecretText()
+        {
+            // Set a random secret sentence
+            Random random = new Random();
+            List<string> randomQuotes = new List<string>();
+            randomQuotes.Add("Hi there!");
+            randomQuotes.Add("It's dangerous to go alone, say this!");
+            randomQuotes.Add("I used to be an useful computer, but then I took an Talkinator to the knee.");
+            randomQuotes.Add("Insert random quote here.");
+            randomQuotes.Add("You know, you could also fill in the textbox above.");
+            randomQuotes.Add("Did you know that you can export your own quotes as audio files?");
+            randomQuotes.Add("Yabba-dabba-rediculously-doo!");
+            randomQuotes.Add("Did you know that the programmer couldn't come up with funny lines, so he tried those old forced ones?");
+            randomQuotes.Add("Thank god for Jim Sterling");
+            randomQuotes.Add("What are your favourite videogames?");
+            randomQuotes.Add("Premium Quality, serve loud!");
+            randomQuotes.Add("Did you know that the programmer is still really fond of the videogame Burnout 2: Point of Impact? It's old, but still holds up pretty well. Give it a shot!");
+            randomQuotes.Add("Quote number 13. I still haven't been spotted yet.");
+            randomQuotes.Add("RIP AND TEAR");
+            randomQuotes.Add("Get to the choppa");
+            randomQuotes.Add("Have you tried using Snips? I've heared it's pretty neat and from the same developer.");
+            randomQuotes.Add("Ohaio gozaimasu! Man, learning Japanese is hard!");
+            randomQuotes.Add("Agents are go!");
+            randomQuotes.Add("Gotta catch them all!");
+            randomQuotes.Add("Why? Because I'm a soul man");
+            randomQuotes.Add("You may guess three times who I am");
+            randomQuotes.Add("On World of Warcraft, I've a character of level 40. How high is yours?");
+            randomQuotes.Add("Wrong number!");
+            randomQuotes.Add("Why are you pressing the play-button? You didn't fill anything in for me to say!");
+            randomQuotes.Add("Never gonna give you up, never gonna let you down.");
+            randomQuotes.Add("Did you know that I was originally going to be called the Talkulator? The programmer changed it after he would repeatedly call me the Talkinator when talking about it to friends.");
+            randomQuotes.Add("Wubbalubbadubdub!");
+            randomQuotes.Add("We bring the FUN in to NO REFUNDS!");
+            randomQuotes.Add("He's gonna take you back to the past...");
+            randomQuotes.Add("Daisy, Daisy, give me your answer, do, I'm half crazy all for the love of you. It won't be a stylish marriage, I can't afford a carriage, But you'd look sweet upon the seat Of a bicycle made for two.");
+            randomQuotes.Add("You gotta get Swifty!");
+            randomQuotes.Add("Have you heard about Temida? This young scientist will define the boundraries of time. Maybe you could ask Ikarago about it! ;)");
+
+            // In memory of mr. Erik 'Haakieeees!' Oltmans, my high school math teacher. Rest In Peace - 16-01-2017
+            randomQuotes.Add("HAAKIEEEEEEEEES!");
+            randomQuotes.Add("Pannekoek!");
+
+            SecretText = randomQuotes[random.Next(randomQuotes.Count)];
+        }
+
+
         /// <summary>
         /// Start playback
         /// </summary>
@@ -328,13 +392,10 @@ namespace Talkinator.UWP.ViewModels
             }
             else // otherwise start a new playback session
             {
-                if (Text != "")
-                {
-                    await PreparePlayback();
-                    HasPlaybackStopped = false;
-                    IsPlaying = true;
-                    _mediaPlayer.Play();
-                }
+                await PreparePlayback();
+                HasPlaybackStopped = false;
+                IsPlaying = true;
+                _mediaPlayer.Play();
             }
         }
 
