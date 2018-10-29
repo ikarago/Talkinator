@@ -24,6 +24,7 @@
         <Grid x:Name="gridTitlebar"
               Grid.Row="0"
               Canvas.ZIndex="500"
+              Visibility="Visible"
               Background="{ThemeResource SystemControlAccentAcrylicWindowAccentMediumHighBrush}"
               Height="32">
             <StackPanel Orientation="Horizontal">
@@ -49,12 +50,13 @@
                     Background="{ThemeResource SystemControlAccentAcrylicWindowAccentMediumHighBrush}"
                     RequestedTheme="Dark"
                     HorizontalAlignment="Stretch"
+                    VerticalAlignment="Center"
                     Style="{ThemeResource CommandBarRevealStyle}">
             <CommandBar.Content>
                 <Button x:Name="btnTitle"
                         Background="Transparent"
                         Visibility="Collapsed"
-				        Padding="12">
+				        Padding="12,8">
                     <TextBlock x:Uid="MainPage_Title"
                                Text="TALKINATOR"
 					           Style="{ThemeResource BaseTextBlockStyle}"
