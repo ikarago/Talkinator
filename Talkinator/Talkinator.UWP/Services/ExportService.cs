@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Talkinator.UWP.Helpers;
 using Windows.Media.MediaProperties;
 using Windows.Media.SpeechSynthesis;
 using Windows.Media.Transcoding;
@@ -67,7 +68,7 @@ namespace Talkinator.UWP.Services
                 exportPicker.FileTypeChoices.Add(".WMA", new List<string>() { ".wma" });
             }
             exportPicker.FileTypeChoices.Add(".WAV", new List<string>() { ".wav" });
-            exportPicker.SuggestedFileName = "Chitchat";
+            exportPicker.SuggestedFileName = ResourceExtensions.GetLocalized("SpokenText");
 
             // Fill data of the fileTarget with selection from the Save-picker
             var fileTarget = await exportPicker.PickSaveFileAsync();
@@ -75,7 +76,7 @@ namespace Talkinator.UWP.Services
             {
                 if (fileTarget.FileType == ".wma" || fileTarget.FileType == ".mp3" || fileTarget.FileType == ".m4a")
                 {
-                    success = await this.ExportToMusicFormat(fileTarget, synthStream);
+                    success = await this.ExportToMusicFormat(fileTarget, synthStream, synth.Voice);
                 }
                 else if (fileTarget.FileType == ".wav")
                 {
@@ -125,7 +126,7 @@ namespace Talkinator.UWP.Services
             //return success;
         }
 
-        private async Task<bool> ExportToMusicFormat(StorageFile fileTarget, SpeechSynthesisStream synthStream)
+        private async Task<bool> ExportToMusicFormat(StorageFile fileTarget, SpeechSynthesisStream synthStream, VoiceInformation voice)
         {
             bool success = false;
             Debug.WriteLine(fileTarget.FileType + " selected");
@@ -180,7 +181,7 @@ namespace Talkinator.UWP.Services
                 // Set Music-properties
                 MusicProperties fileProperties = await fileTarget.Properties.GetMusicPropertiesAsync();
                 fileProperties.Title = fileTarget.DisplayName;
-                fileProperties.Artist = "Talkinator";
+                fileProperties.Artist = ("Talkinator " + ResourceExtensions.GetLocalized("VoicedBy") + " " + voice.DisplayName);
                 await fileProperties.SavePropertiesAsync();
 
                 // Prepare notification

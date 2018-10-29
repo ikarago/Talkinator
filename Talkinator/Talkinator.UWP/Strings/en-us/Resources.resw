@@ -281,4 +281,19 @@ New in this version are:
   <data name="TBTN-Repeat.ToolTipService.ToolTip" xml:space="preserve">
     <value>Repeat</value>
   </data>
+  <data name="SpokenText" xml:space="preserve">
+    <value>Spoken Text</value>
+  </data>
+  <data name="VoicedBy" xml:space="preserve">
+    <value>voiced by:</value>
+    <comment>voiced by: (all lower text)</comment>
+  </data>
+  <data name="VoiceGender" xml:space="preserve">
+    <value>Gender:</value>
+    <comment>Gender</comment>
+  </data>
+  <data name="VoiceLanguage" xml:space="preserve">
+    <value>Language:</value>
+    <comment>Language</comment>
+  </data>
 </root>

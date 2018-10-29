@@ -287,8 +287,8 @@ namespace Talkinator.UWP.ViewModels
             MediaItemDisplayProperties mediaProperties = playbackItem.GetDisplayProperties();
 
             mediaProperties.Type = MediaPlaybackType.Music;
-            mediaProperties.MusicProperties.Artist = ("Talkinator voiced by " + SelectedVoice.VoiceName);
-            mediaProperties.MusicProperties.Title = "Spoken text";
+            mediaProperties.MusicProperties.Artist = ("Talkinator " + ResourceExtensions.GetLocalized("VoicedBy") + " " + SelectedVoice.VoiceName);
+            mediaProperties.MusicProperties.Title = ResourceExtensions.GetLocalized("SpokenText");
 
             playbackItem.ApplyDisplayProperties(mediaProperties);
 

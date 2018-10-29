@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Talkinator.UWP.Helpers;
 using Windows.Media.SpeechSynthesis;
 
 namespace Talkinator.UWP.Models
@@ -14,7 +15,7 @@ namespace Talkinator.UWP.Models
         public string VoiceName { get { return Voice.DisplayName; } }
         public string VoiceGender { get { return Voice.Gender.ToString(); } }
         public string VoiceLanguage { get { return Voice.Language; } }
-        public string VoiceComboBoxName { get { return Voice.DisplayName + " (Language: " + Voice.Language + ", Gender: " + Voice.Gender + ")"; } }
+        public string VoiceComboBoxName { get { return Voice.DisplayName + " (" + ResourceExtensions.GetLocalized("VoiceLanguage") + " " + Voice.Language + ", " + ResourceExtensions.GetLocalized("VoiceGender") + " " + Voice.Gender + ")"; } }
 
         // Contructor
         public VoiceModel(VoiceInformation voice)
