@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Talkinator.UWP.Helpers;
@@ -248,6 +249,9 @@ namespace Talkinator.UWP.ViewModels
             _mediaPlayer.AudioCategory = MediaPlayerAudioCategory.Speech;
             _mediaControls = _mediaPlayer.SystemMediaTransportControls;
             _mediaControls.AutoRepeatMode = MediaPlaybackAutoRepeatMode.None;
+
+            // Set the Text so it isn't null
+            Text = "";
         }
 
         private void GetVoices()
@@ -362,8 +366,17 @@ namespace Talkinator.UWP.ViewModels
         private async void Export()
         {
             // #TODO: Make this a proper service, not the crap that it used to be
-            var exportService = new ExportService();
-            await exportService.ExportSpeechToFile(Text, SelectedVoice.Voice);
+            try
+            {
+                var exportService = new ExportService();
+                await exportService.ExportSpeechToFile(Text, SelectedVoice.Voice);
+            }
+            catch (Exception ex)
+            {
+                // #TODO: Reflect this error back at the user
+                Debug.WriteLine("MainViewModel - Export - Failed - " + ex);
+            }
+
         }
 
         private async void ShowAboutDialog()
