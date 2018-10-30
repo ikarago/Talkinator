@@ -12,6 +12,7 @@ using Windows.Media;
 using Windows.Media.Core;
 using Windows.Media.Playback;
 using Windows.Media.SpeechSynthesis;
+using Windows.UI.Xaml.Controls;
 
 namespace Talkinator.UWP.ViewModels
 {
@@ -429,12 +430,18 @@ namespace Talkinator.UWP.ViewModels
             // #TODO: Make this a proper service, not the crap that it used to be
             try
             {
-                var exportService = new ExportService();
-                await exportService.ExportSpeechToFile(Text, SelectedVoice.Voice);
+                bool success = await ExportService.ExportSpeechToFile(Text, SelectedVoice.Voice);
+                if (success == true)
+                {
+                    // Show UX message telling exporting was successful
+                }
+                else
+                {
+                    // Show UX message telling exporting failed
+                }
             }
             catch (Exception ex)
             {
-                // #TODO: Reflect this error back at the user
                 Debug.WriteLine("MainViewModel - Export - Failed - " + ex);
             }
 

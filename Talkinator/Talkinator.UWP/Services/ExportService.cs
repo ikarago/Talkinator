@@ -21,21 +21,15 @@ namespace Talkinator.UWP.Services
 {
     // # WARNING: LEGACY CODE!!!
     // This is still crappy old code that needs to be replaced/reworked to a proper service. But I was lazy, so I'm using this for now
-    public class ExportService
+    public static class ExportService
     {
-        MediaEncodingProfile _profile;
-        MediaTranscoder _transcoder = new MediaTranscoder();
-        CoreDispatcher _dispatcher = Window.Current.Dispatcher;
-        CancellationTokenSource _cts;
-
-
-        public ExportService()
-        {
-            _cts = new CancellationTokenSource();
-        }
-
-
-        public async Task ExportSpeechToFile(string input, VoiceInformation voice = null)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="input"></param>
+        /// <param name="voice"></param>
+        /// <returns></returns>
+        public static async Task<bool> ExportSpeechToFile(string input, VoiceInformation voice = null)
         {
             bool success = false;
 
@@ -76,7 +70,7 @@ namespace Talkinator.UWP.Services
             {
                 if (fileTarget.FileType == ".wma" || fileTarget.FileType == ".mp3" || fileTarget.FileType == ".m4a")
                 {
-                    success = await this.ExportToMusicFormat(fileTarget, synthStream, synth.Voice);
+                    success = await ExportToMusicFormat(fileTarget, synthStream, synth.Voice);
                 }
                 else if (fileTarget.FileType == ".wav")
                 {
@@ -123,12 +117,27 @@ namespace Talkinator.UWP.Services
 
 
             }
-            //return success;
+            return success;
         }
 
-        private async Task<bool> ExportToMusicFormat(StorageFile fileTarget, SpeechSynthesisStream synthStream, VoiceInformation voice)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="fileTarget">File to write to</param>
+        /// <param name="synthStream">The SpeechSynthesisStream with the actual sound</param>
+        /// <param name="voice">The VoiceInformation for setting the correct voice in the artist</param>
+        /// <returns></returns>
+        private static async Task<bool> ExportToMusicFormat(StorageFile fileTarget, SpeechSynthesisStream synthStream, VoiceInformation voice)
         {
             bool success = false;
+
+            MediaEncodingProfile _profile;
+            MediaTranscoder _transcoder = new MediaTranscoder();
+            CoreDispatcher _dispatcher = Window.Current.Dispatcher;
+            CancellationTokenSource _cts = new CancellationTokenSource();
+
+
+
             Debug.WriteLine(fileTarget.FileType + " selected");
 
             // Set encoding profiles

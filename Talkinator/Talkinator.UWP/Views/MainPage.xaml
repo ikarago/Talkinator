@@ -67,7 +67,7 @@
                 <AppBarButton x:Name="cbtnExport"
                               x:Uid="CBTN-Export"
                               Label="Export to soundfile"
-                              Icon="Save"
+                              Icon="Download"
                               Command="{x:Bind ViewModel.ExportCommand}"/>
             </CommandBar.PrimaryCommands>
             <CommandBar.SecondaryCommands>
