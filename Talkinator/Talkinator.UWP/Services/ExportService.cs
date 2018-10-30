@@ -26,8 +26,8 @@ namespace Talkinator.UWP.Services
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="input"></param>
-        /// <param name="voice"></param>
+        /// <param name="input">The text that's going to be converted into a soundfile</param>
+        /// <param name="voice">The VoiceInformation containing the voice that's going to be used. If null system will use the default system voice</param>
         /// <returns></returns>
         public static async Task<bool> ExportSpeechToFile(string input, VoiceInformation voice = null)
         {
@@ -92,31 +92,6 @@ namespace Talkinator.UWP.Services
                 }
             }
 
-            // Show toast to tell the user whether export has successeeded or failed
-            if (!success)
-            {
-                // #TODO: Update this with new UX message
-                //MessageHelper.ShowExportFailedMessage();
-            }
-            else
-            {
-                // #TODO: Update this with new UX message
-
-                // MessageHelper.ShowExportSuccessfulMessage(fileTarget.Path);
-
-                ////StorageFolder testFolder = await KnownFolders.
-                //StorageFile test = await KnownFolders.GetFolderForUserAsync(exportPicker.)
-
-                //var test = fileTarget.Path.;
-                //test.
-
-                //StorageFolder folder = await fileTarget.GetParentAsync();
-
-                //await Launcher.LaunchFolderAsync(folder, launcherOptions);
-                //await Launcher.LaunchFileAsync(fileTarget);
-
-
-            }
             return success;
         }
 
@@ -201,16 +176,11 @@ namespace Talkinator.UWP.Services
                 //RecentStorageItemVisibility visibility = RecentStorageItemVisibility.AppOnly;
                 //StorageApplicationPermissions.FutureAccessList.Add(fileTarget, fileTarget.DisplayName);
 
-
-
-                StorageFolder parentFolder = await fileTarget.GetParentAsync();
-                FolderLauncherOptions launcherOptions = new FolderLauncherOptions();
-                launcherOptions.ItemsToSelect.Add(fileTarget);
+                //StorageFolder parentFolder = await fileTarget.GetParentAsync();
+                //FolderLauncherOptions launcherOptions = new FolderLauncherOptions();
+                //launcherOptions.ItemsToSelect.Add(fileTarget);
                 // #TODO: This crashes the app nowdays for some reason. Have permissions to use this been changed?
                 //await Launcher.LaunchFolderAsync(parentFolder, launcherOptions);
-
-
-
 
                 // Report completed
                 success = true;
