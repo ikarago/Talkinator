@@ -19,17 +19,15 @@ using Windows.UI.Xaml;
 
 namespace Talkinator.UWP.Services
 {
-    // # WARNING: LEGACY CODE!!!
-    // This is still crappy old code that needs to be replaced/reworked to a proper service. But I was lazy, so I'm using this for now
     public static class ExportService
     {
         /// <summary>
-        /// 
+        /// Exports the entered text to a soundfile
         /// </summary>
         /// <param name="input">The text that's going to be converted into a soundfile</param>
         /// <param name="voice">The VoiceInformation containing the voice that's going to be used. If null system will use the default system voice</param>
         /// <returns></returns>
-        public static async Task<bool> ExportSpeechToFile(string input, VoiceInformation voice = null)
+        public static async Task<bool> ExportTextToSpeechFile(string input, VoiceInformation voice = null)
         {
             bool success = false;
 
@@ -70,7 +68,7 @@ namespace Talkinator.UWP.Services
             {
                 if (fileTarget.FileType == ".wma" || fileTarget.FileType == ".mp3" || fileTarget.FileType == ".m4a")
                 {
-                    success = await ExportToMusicFormat(fileTarget, synthStream, synth.Voice);
+                    success = await SaveAndEncodeFile(fileTarget, synthStream, synth.Voice);
                 }
                 else if (fileTarget.FileType == ".wav")
                 {
@@ -102,15 +100,15 @@ namespace Talkinator.UWP.Services
         /// <param name="synthStream">The SpeechSynthesisStream with the actual sound</param>
         /// <param name="voice">The VoiceInformation for setting the correct voice in the artist</param>
         /// <returns></returns>
-        private static async Task<bool> ExportToMusicFormat(StorageFile fileTarget, SpeechSynthesisStream synthStream, VoiceInformation voice)
+        private static async Task<bool> SaveAndEncodeFile(StorageFile fileTarget, SpeechSynthesisStream synthStream, VoiceInformation voice)
         {
             bool success = false;
 
+            // Initialise some stuff
             MediaEncodingProfile _profile;
             MediaTranscoder _transcoder = new MediaTranscoder();
             CoreDispatcher _dispatcher = Window.Current.Dispatcher;
             CancellationTokenSource _cts = new CancellationTokenSource();
-
 
 
             Debug.WriteLine(fileTarget.FileType + " selected");
@@ -168,7 +166,7 @@ namespace Talkinator.UWP.Services
                 fileProperties.Artist = ("Talkinator " + ResourceExtensions.GetLocalized("VoicedBy") + " " + voice.DisplayName);
                 await fileProperties.SavePropertiesAsync();
 
-                // Prepare notification
+                // #TODO: Add the newly created file to the systems MRU?
                 // Add the file to app MRU and possibly system MRU
                 //RecentStorageItemVisibility visibility = SystemMRUCheckBox.IsChecked.Value ? RecentStorageItemVisibility.AppAndSystem : RecentStorageItemVisibility.AppOnly;
                 //rootPage.mruToken = StorageApplicationPermissions.MostRecentlyUsedList.Add(file, file.Name, visibility);
@@ -176,11 +174,6 @@ namespace Talkinator.UWP.Services
                 //RecentStorageItemVisibility visibility = RecentStorageItemVisibility.AppOnly;
                 //StorageApplicationPermissions.FutureAccessList.Add(fileTarget, fileTarget.DisplayName);
 
-                //StorageFolder parentFolder = await fileTarget.GetParentAsync();
-                //FolderLauncherOptions launcherOptions = new FolderLauncherOptions();
-                //launcherOptions.ItemsToSelect.Add(fileTarget);
-                // #TODO: This crashes the app nowdays for some reason. Have permissions to use this been changed?
-                //await Launcher.LaunchFolderAsync(parentFolder, launcherOptions);
 
                 // Report completed
                 success = true;

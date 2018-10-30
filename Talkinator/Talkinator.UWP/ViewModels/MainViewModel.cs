@@ -430,7 +430,7 @@ namespace Talkinator.UWP.ViewModels
             // #TODO: Make this a proper service, not the crap that it used to be
             try
             {
-                bool success = await ExportService.ExportSpeechToFile(Text, SelectedVoice.Voice);
+                bool success = await ExportService.ExportTextToSpeechFile(Text, SelectedVoice.Voice);
                 if (success == true)
                 {
                     // Show UX message telling exporting was successful
