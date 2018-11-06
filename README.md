@@ -25,7 +25,7 @@ Or you can build and learn from it yourself by downloading or forking this proje
 You can download the project so you can tinker around with it yourself. There are two projects in the solution:
 
 * **Talkinator.UWP.Classic** --> The original (messy) source code
-* **Talkinator.UWP** --> A (work in progress) rewrite of the code in MVVM (Model-View-ViewModel). There are still features missing from this version at this moment.
+* **Talkinator.UWP** --> A rewrite of the code in MVVM (Model-View-ViewModel). This will also be the base of the app for future updates and additions
 
 
 ## Support me
