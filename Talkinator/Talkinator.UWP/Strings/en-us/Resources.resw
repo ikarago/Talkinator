@@ -296,4 +296,20 @@ New in this version are:
     <value>Language:</value>
     <comment>Language</comment>
   </data>
+  <data name="Message-ExportFailed-Message" xml:space="preserve">
+    <value>We weren't able to export your text. :(</value>
+    <comment>Message - Export failed - Message</comment>
+  </data>
+  <data name="Message-ExportFailed-Title" xml:space="preserve">
+    <value>Export failed</value>
+    <comment>Message - Export Failed - Title</comment>
+  </data>
+  <data name="Message-ExportSuccessful-SavedTo" xml:space="preserve">
+    <value>Spoken text has been saved!</value>
+    <comment>Message - Export Successful - File saved to</comment>
+  </data>
+  <data name="Message-ExportSuccessful-Title" xml:space="preserve">
+    <value>Export successful</value>
+    <comment>Message - Export Successful - Title</comment>
+  </data>
 </root>

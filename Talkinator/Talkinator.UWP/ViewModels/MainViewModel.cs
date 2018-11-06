@@ -434,15 +434,22 @@ namespace Talkinator.UWP.ViewModels
                 if (success == true)
                 {
                     // Show UX message telling exporting was successful
+                    // #TODO Replace this with better UX
+                    MessageService.ShowExportSuccessfulMessage();
                 }
                 else
                 {
                     // Show UX message telling exporting failed
+                    // #TODO Replace this with better UX
+                    MessageService.ShowExportFailedMessage();
                 }
             }
             catch (Exception ex)
             {
                 Debug.WriteLine("MainViewModel - Export - Failed - " + ex);
+                // Show UX message telling exporting failed
+                // #TODO Replace this with better UX
+                MessageService.ShowExportFailedMessage();
             }
 
         }
