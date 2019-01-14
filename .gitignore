@@ -243,3 +243,5 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
+/Talkinator/Talkinator.UWP/Package.StoreAssociation.xml
+/Talkinator/Talkinator.UWP/_pkginfo.txt

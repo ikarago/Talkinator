@@ -150,7 +150,7 @@
     <comment>Light theme text for Settings</comment>
   </data>
   <data name="About_Description.Text" xml:space="preserve">
-    <value>Created and programmed by Ikarago, 2016-2018</value>
+    <value>Created and programmed by Ikarago, 2016-2019</value>
     <comment>About this application description for Settings</comment>
   </data>
   <data name="About_PrivacyTermsLink.Content" xml:space="preserve">
@@ -158,7 +158,7 @@
     <comment>Privacy Statement link content for About</comment>
   </data>
   <data name="About_PrivacyTermsLink.NavigateUri" xml:space="preserve">
-    <value>https://ikarago.tumblr.com/privacy-policy</value>
+    <value>https://ikarago.com/privacy-policy</value>
     <comment>Here is your Privacy Statement url for About</comment>
   </data>
   <data name="Settings_Personalization.Text" xml:space="preserve">
@@ -216,12 +216,6 @@ New in this version are:
   <data name="BTN-Clear.ToolTipService.ToolTip" xml:space="preserve">
     <value>Clear text</value>
     <comment>BTN Clear - Tooltip</comment>
-  </data>
-  <data name="BTN-ClosePatreonAd.AutomationProperties.HelpText" xml:space="preserve">
-    <value>Patreon-banner closed</value>
-  </data>
-  <data name="BTN-ClosePatreonAd.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Close Patreon-banner</value>
   </data>
   <data name="BTN-Pause.AutomationProperties.HelpText" xml:space="preserve">
     <value>Playback paused</value>
