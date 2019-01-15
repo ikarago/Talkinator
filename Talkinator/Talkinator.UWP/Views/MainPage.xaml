@@ -116,6 +116,7 @@
                      InputScope="Text" 
                      AllowDrop="True"                            
                      Padding="12"
+                     BorderThickness="0"
                      VerticalAlignment="Stretch"
                      HorizontalAlignment="Stretch"
                      Style="{StaticResource TextBoxNoBackground}"
