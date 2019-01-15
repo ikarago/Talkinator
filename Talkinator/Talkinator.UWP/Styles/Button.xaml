@@ -138,17 +138,17 @@
                                 </VisualState>
                             </VisualStateGroup>
                         </VisualStateManager.VisualStateGroups>
-                        <controls:DropShadowPanel HorizontalAlignment="Stretch"
+                        <!--<controls:DropShadowPanel HorizontalAlignment="Stretch"
                                                   HorizontalContentAlignment="Stretch"
                                                   VerticalAlignment="Stretch"
                                                   OffsetX="1"
                                                   OffsetY="1"
-                                                  ShadowOpacity="0.7">
+                                                  ShadowOpacity="0.7">-->
                             <Ellipse x:Name="RootEllipse"
                                      HorizontalAlignment="Stretch"
                                      VerticalAlignment="Stretch"
                                      Fill="{TemplateBinding Background}" />
-                        </controls:DropShadowPanel>
+                        <!--</controls:DropShadowPanel>-->
 
                         <ContentPresenter x:Name="ContentPresenter" AutomationProperties.AccessibilityView="Raw" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" ContentTemplate="{TemplateBinding ContentTemplate}" ContentTransitions="{TemplateBinding ContentTransitions}" Content="{TemplateBinding Content}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" Padding="{TemplateBinding Padding}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
                     </Grid>
