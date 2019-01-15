@@ -172,7 +172,7 @@
                                   Height="96"
                                   Width="96"
                                   IsActive="True"
-                                  Visibility="Visible"/>
+                                  Visibility="{x:Bind ViewModel.IsPreparing, Mode=OneWay}"/>
 
                     <!-- Play button -->
                     <Button x:Name="btnPlay"
