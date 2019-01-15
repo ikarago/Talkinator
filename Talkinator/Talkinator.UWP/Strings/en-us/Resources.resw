@@ -184,9 +184,10 @@
   <data name="AfterUpdate_Body.Text" xml:space="preserve">
     <value>Welcome to this reworked version of Talkinator! We hope you've enjoyed the app so far. :)
 
-New in this version are:
-- A new fluent look!
-- A ton of stability improvements</value>
+Changelog:
+- IMPROVED: Updated the look of the app.
+- IMPROVED: Updated the look of the About-dialog.
+- BUGFIX: Fixed various small UI bugs.</value>
     <comment>What's new prompt message body</comment>
   </data>
   <data name="AfterUpdate_Title.Text" xml:space="preserve">
