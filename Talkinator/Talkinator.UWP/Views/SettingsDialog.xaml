@@ -21,7 +21,7 @@
         <helper:EnumToBooleanConverter x:Key="EnumToBooleanConverter" EnumType="ElementTheme" />
     </ContentDialog.Resources>
 
-    <Grid Margin="0">
+    <Grid>
         <contract7Present:Grid.BackgroundTransition>
             <contract7Present:BrushTransition />
         </contract7Present:Grid.BackgroundTransition>
@@ -71,55 +71,58 @@
         </RelativePanel>
 
         <!-- Content -->
-        <StackPanel Grid.Row="1"
-                    Canvas.ZIndex="10"
-                    Padding="0,12,0,0"
-                    ScrollViewer.VerticalScrollMode="Auto">
-            <!-- Personalization -->
-            <TextBlock Text="Personalization"
-                       x:Uid="Settings_Personalization"
-                       FontWeight="Bold"
-                       Style="{StaticResource SubtitleTextBlockStyle}" />
+        <ScrollViewer Grid.Row="1">
+            <StackPanel Padding="0,12,0,0">
+                <!-- Personalization -->
+                <StackPanel Margin="{StaticResource DialogCategoryMargin}">
+                    <TextBlock Text="Personalization"
+                               x:Uid="Settings_Personalization"
+                               FontWeight="Bold"
+                               Margin="{StaticResource DialogSubtitleMargin}"
+                               Style="{StaticResource SubtitleTextBlockStyle}" />
 
-            <!-- Theme -->
-            <StackPanel Margin="{StaticResource SettingsSubheaderMargin}">
-                <TextBlock Text="Theme"
-                           x:Uid="Settings_Theme"
-                           FontWeight="SemiBold"
-                           Style="{StaticResource BodyTextStyle}" />
+                    <!-- Theme -->
+                    <StackPanel Margin="{StaticResource DialogSubcategoryMargin}">
+                        <TextBlock Text="Theme"
+                                   x:Uid="Settings_Theme"
+                                   FontWeight="SemiBold"
+                                   Style="{StaticResource BodyTextBlockStyle}" />
 
-                <StackPanel Margin="{StaticResource EightTopMargin}">
-                    <RadioButton 
-                        x:Uid="Settings_Theme_Light"
-                        GroupName="AppTheme"
-                        IsChecked="{x:Bind ViewModel.ElementTheme, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=Light, Mode=OneWay}"
-                        Command="{x:Bind ViewModel.SwitchThemeCommand}">
-                        <RadioButton.CommandParameter>
-                            <xaml:ElementTheme>Light</xaml:ElementTheme>
-                        </RadioButton.CommandParameter>
-                    </RadioButton>
-                    <RadioButton
-                        x:Uid="Settings_Theme_Dark"
-                        GroupName="AppTheme"
-                        IsChecked="{x:Bind ViewModel.ElementTheme, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=Dark, Mode=OneWay}"
-                        Command="{x:Bind ViewModel.SwitchThemeCommand}">
-                        <RadioButton.CommandParameter>
-                            <xaml:ElementTheme>Dark</xaml:ElementTheme>
-                        </RadioButton.CommandParameter>
-                    </RadioButton>
-                    <RadioButton
-                        x:Uid="Settings_Theme_Default"
-                        GroupName="AppTheme"
-                        IsChecked="{x:Bind ViewModel.ElementTheme, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=Default, Mode=OneWay}"
-                        Command="{x:Bind ViewModel.SwitchThemeCommand}">
-                        <RadioButton.CommandParameter>
-                            <xaml:ElementTheme>Default</xaml:ElementTheme>
-                        </RadioButton.CommandParameter>
-                    </RadioButton>
+                        <StackPanel Margin="{StaticResource EightTopMargin}">
+                            <RadioButton x:Uid="Settings_Theme_Light"
+                                         GroupName="AppTheme"
+                                         IsChecked="{x:Bind ViewModel.ElementTheme, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=Light, Mode=OneWay}"
+                                         Command="{x:Bind ViewModel.SwitchThemeCommand}">
+                                <RadioButton.CommandParameter>
+                                    <xaml:ElementTheme>Light</xaml:ElementTheme>
+                                </RadioButton.CommandParameter>
+                            </RadioButton>
+                            <RadioButton x:Uid="Settings_Theme_Dark"
+                                         GroupName="AppTheme"
+                                         IsChecked="{x:Bind ViewModel.ElementTheme, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=Dark, Mode=OneWay}"
+                                         Command="{x:Bind ViewModel.SwitchThemeCommand}">
+                                <RadioButton.CommandParameter>
+                                    <xaml:ElementTheme>Dark</xaml:ElementTheme>
+                                </RadioButton.CommandParameter>
+                            </RadioButton>
+                            <RadioButton x:Uid="Settings_Theme_Default"
+                                         GroupName="AppTheme"
+                                         IsChecked="{x:Bind ViewModel.ElementTheme, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=Default, Mode=OneWay}"
+                                         Command="{x:Bind ViewModel.SwitchThemeCommand}">
+                                <RadioButton.CommandParameter>
+                                    <xaml:ElementTheme>Default</xaml:ElementTheme>
+                                </RadioButton.CommandParameter>
+                            </RadioButton>
+                        </StackPanel>
+                    </StackPanel>
+
                 </StackPanel>
-            </StackPanel>
-        </StackPanel>
 
+
+            </StackPanel>
+        </ScrollViewer>
+
+        <!-- Dialog background icon -->
         <FontIcon Grid.Row="1"
                   Canvas.ZIndex="5"
                   Glyph="&#xE115;"

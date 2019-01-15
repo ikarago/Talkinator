@@ -306,4 +306,17 @@ New in this version are:
     <value>Export successful</value>
     <comment>Message - Export Successful - Title</comment>
   </data>
+  <data name="About_LinksTitle.Text" xml:space="preserve">
+    <value>Links</value>
+    <comment>About - Title of the Links category</comment>
+  </data>
+  <data name="About_Translators.Text" xml:space="preserve">
+    <value>English by Ikarago
+*future languages*</value>
+    <comment>About - List of translators</comment>
+  </data>
+  <data name="About_TranslatorsTitle.Text" xml:space="preserve">
+    <value>Translators</value>
+    <comment>About - Translators</comment>
+  </data>
 </root>
