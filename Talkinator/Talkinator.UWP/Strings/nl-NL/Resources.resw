@@ -117,41 +117,21 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AppDisplayName" xml:space="preserve">
-    <value>Talkinator</value>
-    <comment>Application display name</comment>
-  </data>
-  <data name="AppDescription" xml:space="preserve">
-    <value>Talkinator</value>
-    <comment>Application description</comment>
-  </data>
-  <data name="Main_Title.Text" xml:space="preserve">
-    <value>Main</value>
-    <comment>Page title for MainPage</comment>
-  </data>
-  <data name="ExceptionSettingsStorageExtensionsFileNameIsNullOrEmpty" xml:space="preserve">
-    <value>File name is null or empty. Specify a valid file name</value>
-    <comment>File name is null or empty to save file in settings storage extensions</comment>
-  </data>
-  <data name="Settings_Theme.Text" xml:space="preserve">
-    <value>Choose Theme</value>
-    <comment>Choose theme text for Settings</comment>
-  </data>
-  <data name="Settings_Theme_Dark.Content" xml:space="preserve">
-    <value>Dark</value>
-    <comment>Dark theme text for Settings</comment>
-  </data>
-  <data name="Settings_Theme_Default.Content" xml:space="preserve">
-    <value>Windows default</value>
-    <comment>Windows default theme text for Settings</comment>
-  </data>
-  <data name="Settings_Theme_Light.Content" xml:space="preserve">
-    <value>Light</value>
-    <comment>Light theme text for Settings</comment>
-  </data>
   <data name="About_Description.Text" xml:space="preserve">
-    <value>Created and programmed by Ikarago, 2016-2019</value>
+    <value>Gemaakt door Ikarago, 2016-2019</value>
     <comment>About this application description for Settings</comment>
+  </data>
+  <data name="About_GitHubLink.Content" xml:space="preserve">
+    <value>GitHub project</value>
+    <comment>Link to the GitHub Project</comment>
+  </data>
+  <data name="About_GitHubLink.NavigateUri" xml:space="preserve">
+    <value>https://github.com/ikarago/Talkinator</value>
+    <comment>GitHub Project URL</comment>
+  </data>
+  <data name="About_LinksTitle.Text" xml:space="preserve">
+    <value>Links</value>
+    <comment>About - Title of the Links category</comment>
   </data>
   <data name="About_PrivacyTermsLink.Content" xml:space="preserve">
     <value>Privacy Policy</value>
@@ -161,25 +141,19 @@
     <value>https://ikarago.com/privacy-policy</value>
     <comment>Here is your Privacy Statement url for About</comment>
   </data>
-  <data name="Settings_Personalization.Text" xml:space="preserve">
-    <value>Personalization</value>
-    <comment>Personalization text for Settings</comment>
+  <data name="About_Title.Text" xml:space="preserve">
+    <value>Over deze app</value>
+    <comment>Dialog title for AboutDialog</comment>
   </data>
-  <data name="ExceptionEnumToBooleanConverterValueMustBeAnEnum" xml:space="preserve">
-    <value>value must be an Enum!</value>
-    <comment>Value must be an Enum in enum to boolean converter</comment>
+  <data name="About_Translators.Text" xml:space="preserve">
+    <value>English by Ikarago
+Dutch by Ikarago
+French by François-Joseph du Fou</value>
+    <comment>About - List of translators</comment>
   </data>
-  <data name="ExceptionEnumToBooleanConverterParameterMustBeAnEnumName" xml:space="preserve">
-    <value>parameter must be an Enum name!</value>
-    <comment>Parameter must be an Enum name in enum to boolean converter</comment>
-  </data>
-  <data name="Settings_Title.Text" xml:space="preserve">
-    <value>Settings</value>
-    <comment>Dialog title for SettingsDialog</comment>
-  </data>
-  <data name="ExceptionViewLifeTimeControlViewDisposal" xml:space="preserve">
-    <value>This view is being disposed.</value>
-    <comment>View disposed</comment>
+  <data name="About_TranslatorsTitle.Text" xml:space="preserve">
+    <value>Vertalers</value>
+    <comment>About - Translators</comment>
   </data>
   <data name="AfterUpdate_Body.Text" xml:space="preserve">
     <value>Welcome to this reworked version of Talkinator! We hope you've enjoyed the app so far. :)
@@ -191,134 +165,160 @@ Changelog:
     <comment>What's new prompt message body</comment>
   </data>
   <data name="AfterUpdate_Title.Text" xml:space="preserve">
-    <value>What's new in this version</value>
+    <value>Wat is er nieuw?</value>
     <comment>What's new prompt message title</comment>
+  </data>
+  <data name="AppDescription" xml:space="preserve">
+    <value>Talkinator</value>
+    <comment>Application description</comment>
+  </data>
+  <data name="AppDisplayName" xml:space="preserve">
+    <value>Talkinator</value>
+    <comment>Application display name</comment>
+  </data>
+  <data name="BTN-Clear.AutomationProperties.HelpText" xml:space="preserve">
+    <value>Tekst verwijderd</value>
+    <comment>BTN Clear - Helptext</comment>
+  </data>
+  <data name="BTN-Clear.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Tekst verwijderen</value>
+    <comment>BTN Clear - Tooltip</comment>
+  </data>
+  <data name="BTN-Pause.AutomationProperties.HelpText" xml:space="preserve">
+    <value>Geluidsfragment gepauzeerd</value>
+  </data>
+  <data name="BTN-Pause.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Pauzeer het geluidsfragment</value>
+  </data>
+  <data name="BTN-Play.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Afspelen</value>
+  </data>
+  <data name="BTN-SpeechSettings.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Ga naar Stem-Instellingen</value>
+    <comment>BTN - Speech settings - Tooltip</comment>
+  </data>
+  <data name="BTN-Stop.AutomationProperties.HelpText" xml:space="preserve">
+    <value>Geluidsfragment gestopt</value>
+  </data>
+  <data name="BTN-Stop.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Stop het fragment</value>
+    <comment>BTN Stop - Tooltip</comment>
+  </data>
+  <data name="CBTN-About.Label" xml:space="preserve">
+    <value>Over deze app</value>
+    <comment>CommandBar button - About - Label</comment>
+  </data>
+  <data name="CBTN-About.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Over deze app</value>
+    <comment>CommandBar button - About - Tooltip</comment>
+  </data>
+  <data name="CBTN-Export.Label" xml:space="preserve">
+    <value>Exporteren</value>
+    <comment>CommandBar button - About - Label</comment>
+  </data>
+  <data name="CBTN-Export.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Exporteren naar geluidsbestand</value>
+    <comment>CommandBar button - About - Tooltip</comment>
+  </data>
+  <data name="CBTN-Settings.Label" xml:space="preserve">
+    <value>Instellingen</value>
+    <comment>CommandBar Button - Settings</comment>
+  </data>
+  <data name="CBTN-Settings.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Instellingen</value>
+  </data>
+  <data name="ExceptionEnumToBooleanConverterParameterMustBeAnEnumName" xml:space="preserve">
+    <value>parameter must be an Enum name!</value>
+    <comment>Parameter must be an Enum name in enum to boolean converter</comment>
+  </data>
+  <data name="ExceptionEnumToBooleanConverterValueMustBeAnEnum" xml:space="preserve">
+    <value>value must be an Enum!</value>
+    <comment>Value must be an Enum in enum to boolean converter</comment>
+  </data>
+  <data name="ExceptionSettingsStorageExtensionsFileNameIsNullOrEmpty" xml:space="preserve">
+    <value>File name is null or empty. Specify a valid file name</value>
+    <comment>File name is null or empty to save file in settings storage extensions</comment>
+  </data>
+  <data name="ExceptionViewLifeTimeControlViewDisposal" xml:space="preserve">
+    <value>This view is being disposed.</value>
+    <comment>View disposed</comment>
   </data>
   <data name="FeedbackHub_Link.Content" xml:space="preserve">
     <value>Feedback</value>
     <comment>Displayed as the link to launching the Feedback Hub.</comment>
-  </data>
-  <data name="About_GitHubLink.Content" xml:space="preserve">
-    <value>GitHub project</value>
-    <comment>Link to the GitHub Project</comment>
-  </data>
-  <data name="About_GitHubLink.NavigateUri" xml:space="preserve">
-    <value>https://github.com/ikarago/Talkinator</value>
-    <comment>GitHub Project URL</comment>
-  </data>
-  <data name="About_Title.Text" xml:space="preserve">
-    <value>About</value>
-    <comment>Dialog title for AboutDialog</comment>
-  </data>
-  <data name="BTN-Clear.AutomationProperties.HelpText" xml:space="preserve">
-    <value>Text cleared</value>
-    <comment>BTN Clear - Helptext</comment>
-  </data>
-  <data name="BTN-Clear.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Clear text</value>
-    <comment>BTN Clear - Tooltip</comment>
-  </data>
-  <data name="BTN-Pause.AutomationProperties.HelpText" xml:space="preserve">
-    <value>Playback paused</value>
-  </data>
-  <data name="BTN-Pause.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Pause playback</value>
-  </data>
-  <data name="BTN-Play.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Play</value>
-  </data>
-  <data name="BTN-SpeechSettings.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Go to Speech-settings</value>
-    <comment>BTN - Speech settings - Tooltip</comment>
-  </data>
-  <data name="BTN-Stop.AutomationProperties.HelpText" xml:space="preserve">
-    <value>Playback stopped</value>
-  </data>
-  <data name="BTN-Stop.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Stop playback</value>
-    <comment>BTN Stop - Tooltip</comment>
-  </data>
-  <data name="CBTN-About.Label" xml:space="preserve">
-    <value>About</value>
-    <comment>CommandBar button - About - Label</comment>
-  </data>
-  <data name="CBTN-About.ToolTipService.ToolTip" xml:space="preserve">
-    <value>About</value>
-    <comment>CommandBar button - About - Tooltip</comment>
-  </data>
-  <data name="CBTN-Export.Label" xml:space="preserve">
-    <value>Export to soundfile</value>
-    <comment>CommandBar button - About - Label</comment>
-  </data>
-  <data name="CBTN-Export.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Export to soundfile</value>
-    <comment>CommandBar button - About - Tooltip</comment>
-  </data>
-  <data name="CBTN-Settings.Label" xml:space="preserve">
-    <value>Settings</value>
-    <comment>CommandBar Button - Settings</comment>
-  </data>
-  <data name="CBTN-Settings.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Settings</value>
   </data>
   <data name="MainPage_AppTitle.Text" xml:space="preserve">
     <value>Talkinator</value>
     <comment>MainPage - Titlebar - Title</comment>
   </data>
   <data name="MainPage_Input.PlaceholderText" xml:space="preserve">
-    <value>Type or drop some text here...</value>
+    <value>Typ of sleep hier tekst naartoe...</value>
     <comment>MainPage - Input - Placeholder Text</comment>
   </data>
   <data name="MainPage_Title.Text" xml:space="preserve">
     <value>TALKINATOR</value>
     <comment>MainPage - Title (All Caps)</comment>
   </data>
-  <data name="TBTN-Repeat.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Repeat</value>
-  </data>
-  <data name="SpokenText" xml:space="preserve">
-    <value>Spoken Text</value>
-  </data>
-  <data name="VoicedBy" xml:space="preserve">
-    <value>voiced by:</value>
-    <comment>voiced by: (all lower text)</comment>
-  </data>
-  <data name="VoiceGender" xml:space="preserve">
-    <value>Gender:</value>
-    <comment>Gender</comment>
-  </data>
-  <data name="VoiceLanguage" xml:space="preserve">
-    <value>Language:</value>
-    <comment>Language</comment>
+  <data name="Main_Title.Text" xml:space="preserve">
+    <value>Main</value>
+    <comment>Page title for MainPage</comment>
   </data>
   <data name="Message-ExportFailed-Message" xml:space="preserve">
-    <value>We weren't able to export your text. :(</value>
+    <value>Jouw tekst kon niet worden opgeslagen :(</value>
     <comment>Message - Export failed - Message</comment>
   </data>
   <data name="Message-ExportFailed-Title" xml:space="preserve">
-    <value>Export failed</value>
+    <value>Exporteren mislukt :(</value>
     <comment>Message - Export Failed - Title</comment>
   </data>
   <data name="Message-ExportSuccessful-SavedTo" xml:space="preserve">
-    <value>Spoken text has been saved!</value>
+    <value>Geluidsbestand opgeslagen! :)</value>
     <comment>Message - Export Successful - File saved to</comment>
   </data>
   <data name="Message-ExportSuccessful-Title" xml:space="preserve">
-    <value>Export successful</value>
+    <value>Exporteren succesvol! :)</value>
     <comment>Message - Export Successful - Title</comment>
   </data>
-  <data name="About_LinksTitle.Text" xml:space="preserve">
-    <value>Links</value>
-    <comment>About - Title of the Links category</comment>
+  <data name="Settings_Personalization.Text" xml:space="preserve">
+    <value>Personalisatie</value>
+    <comment>Personalization text for Settings</comment>
   </data>
-  <data name="About_Translators.Text" xml:space="preserve">
-    <value>English by Ikarago
-Dutch by Ikarago
-French by François-Joseph du Fou</value>
-    <comment>About - List of translators</comment>
+  <data name="Settings_Theme.Text" xml:space="preserve">
+    <value>Kies een thema</value>
+    <comment>Choose theme text for Settings</comment>
   </data>
-  <data name="About_TranslatorsTitle.Text" xml:space="preserve">
-    <value>Translators</value>
-    <comment>About - Translators</comment>
+  <data name="Settings_Theme_Dark.Content" xml:space="preserve">
+    <value>Donker</value>
+    <comment>Dark theme text for Settings</comment>
+  </data>
+  <data name="Settings_Theme_Default.Content" xml:space="preserve">
+    <value>Standaard</value>
+    <comment>Windows default theme text for Settings</comment>
+  </data>
+  <data name="Settings_Theme_Light.Content" xml:space="preserve">
+    <value>Licht</value>
+    <comment>Light theme text for Settings</comment>
+  </data>
+  <data name="Settings_Title.Text" xml:space="preserve">
+    <value>Instellingen</value>
+    <comment>Dialog title for SettingsDialog</comment>
+  </data>
+  <data name="SpokenText" xml:space="preserve">
+    <value>Gesproken tekst</value>
+  </data>
+  <data name="TBTN-Repeat.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Herhalen</value>
+  </data>
+  <data name="VoicedBy" xml:space="preserve">
+    <value>gesproken door:</value>
+    <comment>voiced by: (all lower text)</comment>
+  </data>
+  <data name="VoiceGender" xml:space="preserve">
+    <value>Geslacht:</value>
+    <comment>Gender</comment>
+  </data>
+  <data name="VoiceLanguage" xml:space="preserve">
+    <value>Taal:</value>
+    <comment>Language</comment>
   </data>
 </root>

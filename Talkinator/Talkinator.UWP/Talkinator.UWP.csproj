@@ -384,6 +384,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include=".editorconfig" />
+    <PRIResource Include="Strings\nl-NL\Resources.resw" />
     <None Include="Talkinator.UWP_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>

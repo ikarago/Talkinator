@@ -61,7 +61,7 @@
                             Background="{ThemeResource SystemControlBackgroundAccentBrush}"
                             RequestedTheme="Dark"
                             HorizontalAlignment="Stretch"
-                            VerticalAlignment="Center"
+                            VerticalAlignment="Top"
                             Style="{ThemeResource CommandBarRevealStyle}">
                     <CommandBar.Content>
                         <Button x:Name="btnTitle"
@@ -259,8 +259,7 @@
                                   Margin="0,0,12,0"
                                   HorizontalAlignment="Stretch"
                                   ItemsSource="{x:Bind ViewModel.Voices}"
-                                  SelectedItem="{x:Bind ViewModel.SelectedVoice, Mode=TwoWay}"
-                                  Style="{ThemeResource FluentComboBoxStyle}">
+                                  SelectedItem="{x:Bind ViewModel.SelectedVoice, Mode=TwoWay}">
                             <ComboBox.ItemTemplate>
                                 <DataTemplate x:DataType="models:VoiceModel">
                                     <TextBlock Text="{x:Bind VoiceComboBoxName}" />
